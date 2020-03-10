@@ -11,15 +11,18 @@ import UIKit
 class MainView: UIView {
 
     var logoImage: UIImageView = {
-        let image = UIImageView(image: Images.logo)
-        image.backgroundColor = .brown
+        let imageView = UIImageView(image: Images.logo)
+        imageView.tintColor = .red
+        imageView.contentMode = .scaleAspectFit
         
-        return image
+        return imageView
     }()
     
     var appNameLabel: UILabel = {
         let label = UILabel()
         label.text = "Course Judge"
+        label.font = UIFont(name: "Helvetica", size: 30.0)
+        label.textAlignment = .center
         
         return label
     }()
@@ -27,13 +30,15 @@ class MainView: UIView {
     var sloganLabel: UILabel = {
         let label = UILabel()
         label.text = "Created by Students, for the Students"
+        label.font = UIFont(name: "Helvetica", size: 16.0)
+        label.textAlignment = .center
         
         return label
     }()
     
     var searchField: UITextField = {
         let textField = UITextField()
-        textField.backgroundColor = UIColor.black.withAlphaComponent(0.2)
+        textField.backgroundColor = UIColor.black.withAlphaComponent(0.15)
         textField.layer.cornerRadius = 2
         
         return textField
@@ -42,6 +47,11 @@ class MainView: UIView {
     var searchButton: UIButton = {
         let button = UIButton()
         button.setTitle("Search", for: .normal)
+        button.layer.cornerRadius = 5
+        button.backgroundColor = UIColor.systemBlue.withAlphaComponent(0.7)
+        
+        button.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: 18.0)
+        button.contentEdgeInsets  = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
         
         return button
     }()
@@ -49,7 +59,7 @@ class MainView: UIView {
     var verticalStack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
-        stack.distribution = .fillProportionally
+        stack.distribution = .fillEqually
         
         return stack
     }()
@@ -65,10 +75,10 @@ class MainView: UIView {
         verticalStack.addArrangedSubview(searchButton)
         
         addSubviewLayout(verticalStack)
-        verticalStack.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        verticalStack.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
         verticalStack.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         verticalStack.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        verticalStack.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        verticalStack.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
     
     required init?(coder: NSCoder) {
