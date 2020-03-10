@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		ED40FCF72417436A00E0B939 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FCF62417436A00E0B939 /* MainView.swift */; };
 		ED40FCFA241743DD00E0B939 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FCF9241743DD00E0B939 /* Coordinator.swift */; };
+		ED40FD04241748CE00E0B939 /* Optional+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FCFC241748CD00E0B939 /* Optional+extensions.swift */; };
+		ED40FD05241748CE00E0B939 /* UIView+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FCFD241748CD00E0B939 /* UIView+extensions.swift */; };
+		ED40FD06241748CE00E0B939 /* UIColor+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FCFE241748CD00E0B939 /* UIColor+extensions.swift */; };
+		ED40FD08241748CE00E0B939 /* String+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD00241748CE00E0B939 /* String+extensions.swift */; };
+		ED40FD09241748CE00E0B939 /* Array+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD01241748CE00E0B939 /* Array+extensions.swift */; };
+		ED40FD0A241748CE00E0B939 /* CGRect+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD02241748CE00E0B939 /* CGRect+extensions.swift */; };
+		ED40FD0B241748CE00E0B939 /* UIViewController+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD03241748CE00E0B939 /* UIViewController+extensions.swift */; };
+		ED40FD0E241749FC00E0B939 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD0D241749FC00E0B939 /* Images.swift */; };
 		ED9D9F4A2416C080004C05D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9D9F492416C080004C05D9 /* AppDelegate.swift */; };
 		ED9D9F4C2416C080004C05D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9D9F4B2416C080004C05D9 /* SceneDelegate.swift */; };
 		ED9D9F4E2416C080004C05D9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9D9F4D2416C080004C05D9 /* MainViewController.swift */; };
@@ -19,6 +27,14 @@
 /* Begin PBXFileReference section */
 		ED40FCF62417436A00E0B939 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		ED40FCF9241743DD00E0B939 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		ED40FCFC241748CD00E0B939 /* Optional+extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Optional+extensions.swift"; sourceTree = "<group>"; };
+		ED40FCFD241748CD00E0B939 /* UIView+extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+extensions.swift"; sourceTree = "<group>"; };
+		ED40FCFE241748CD00E0B939 /* UIColor+extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+extensions.swift"; sourceTree = "<group>"; };
+		ED40FD00241748CE00E0B939 /* String+extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+extensions.swift"; sourceTree = "<group>"; };
+		ED40FD01241748CE00E0B939 /* Array+extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+extensions.swift"; sourceTree = "<group>"; };
+		ED40FD02241748CE00E0B939 /* CGRect+extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+extensions.swift"; sourceTree = "<group>"; };
+		ED40FD03241748CE00E0B939 /* UIViewController+extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+extensions.swift"; sourceTree = "<group>"; };
+		ED40FD0D241749FC00E0B939 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		ED9D9F462416C080004C05D9 /* CourseJudge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CourseJudge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED9D9F492416C080004C05D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED9D9F4B2416C080004C05D9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +72,28 @@
 			path = Coodinator;
 			sourceTree = "<group>";
 		};
+		ED40FCFB2417489D00E0B939 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				ED40FD01241748CE00E0B939 /* Array+extensions.swift */,
+				ED40FD02241748CE00E0B939 /* CGRect+extensions.swift */,
+				ED40FCFC241748CD00E0B939 /* Optional+extensions.swift */,
+				ED40FD00241748CE00E0B939 /* String+extensions.swift */,
+				ED40FCFE241748CD00E0B939 /* UIColor+extensions.swift */,
+				ED40FCFD241748CD00E0B939 /* UIView+extensions.swift */,
+				ED40FD03241748CE00E0B939 /* UIViewController+extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		ED40FD0C241749EE00E0B939 /* Contants */ = {
+			isa = PBXGroup;
+			children = (
+				ED40FD0D241749FC00E0B939 /* Images.swift */,
+			);
+			path = Contants;
+			sourceTree = "<group>";
+		};
 		ED9D9F3D2416C080004C05D9 = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +115,8 @@
 			children = (
 				ED9D9F572416C081004C05D9 /* Info.plist */,
 				ED9D9F5D24173587004C05D9 /* Singletons */,
+				ED40FD0C241749EE00E0B939 /* Contants */,
+				ED40FCFB2417489D00E0B939 /* Extensions */,
 				ED40FCF8241743CB00E0B939 /* Coodinator */,
 				ED9D9F5F2417359A004C05D9 /* Main */,
 				ED9D9F5E24173595004C05D9 /* Resources */,
@@ -180,8 +220,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED40FD05241748CE00E0B939 /* UIView+extensions.swift in Sources */,
+				ED40FD0A241748CE00E0B939 /* CGRect+extensions.swift in Sources */,
 				ED9D9F4E2416C080004C05D9 /* MainViewController.swift in Sources */,
+				ED40FD04241748CE00E0B939 /* Optional+extensions.swift in Sources */,
+				ED40FD0E241749FC00E0B939 /* Images.swift in Sources */,
+				ED40FD06241748CE00E0B939 /* UIColor+extensions.swift in Sources */,
+				ED40FD08241748CE00E0B939 /* String+extensions.swift in Sources */,
+				ED40FD0B241748CE00E0B939 /* UIViewController+extensions.swift in Sources */,
 				ED40FCF72417436A00E0B939 /* MainView.swift in Sources */,
+				ED40FD09241748CE00E0B939 /* Array+extensions.swift in Sources */,
 				ED40FCFA241743DD00E0B939 /* Coordinator.swift in Sources */,
 				ED9D9F4A2416C080004C05D9 /* AppDelegate.swift in Sources */,
 				ED9D9F4C2416C080004C05D9 /* SceneDelegate.swift in Sources */,
