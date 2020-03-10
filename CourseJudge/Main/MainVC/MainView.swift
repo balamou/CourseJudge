@@ -56,10 +56,10 @@ class MainView: UIView {
         return button
     }()
     
-    var verticalStack: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .vertical
-        stack.distribution = .fillEqually
+    var verticalStack: ProportionalStackView = {
+        let stack = ProportionalStackView()
+//        stack.axis = .vertical
+//        stack.distribution = .fillEqually
         
         return stack
     }()
@@ -68,11 +68,11 @@ class MainView: UIView {
         super.init(frame: frame)
         backgroundColor = .white
         
-        verticalStack.addArrangedSubview(logoImage)
-        verticalStack.addArrangedSubview(appNameLabel)
-        verticalStack.addArrangedSubview(sloganLabel)
-        verticalStack.addArrangedSubview(searchField)
-        verticalStack.addArrangedSubview(searchButton)
+        verticalStack.addArrangedSubview(logoImage, proportion: 0.3)
+        verticalStack.addArrangedSubview(appNameLabel, proportion: 0.1)
+        verticalStack.addArrangedSubview(sloganLabel, proportion: 0.1)
+        verticalStack.addArrangedSubview(searchField, proportion: 0.1)
+        verticalStack.addArrangedSubview(searchButton, proportion: 0.1)
         
         addSubviewLayout(verticalStack)
         verticalStack.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
