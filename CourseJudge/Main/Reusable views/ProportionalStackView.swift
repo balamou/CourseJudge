@@ -12,6 +12,13 @@ class ProportionalStackView: UIView {
     private var views: [UIView] = []
     private var proportions: [Float] = []
     
+    
+    enum FillMode {
+        case fill(margins: UIEdgeInsets)
+        case center(height: CGFloat, left: CGFloat, right: CGFloat)
+        case centerXY
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -21,8 +28,8 @@ class ProportionalStackView: UIView {
     }
     
     
-    func addArrangedSubview(_ view: UIView, proportion: Float, _ margins: UIEdgeInsets? = nil) {
-        let wrappedView = wrap(view: view, margins: margins)
+    func addArrangedSubview(_ view: UIView, proportion: Float, contentMode: FillMode = .fill(margins: .zero)) {
+        let wrappedView = wrap(view: view, contentMode: contentMode)
         addSubviewLayout(wrappedView)
         
         if let topView = views.last {
@@ -40,21 +47,50 @@ class ProportionalStackView: UIView {
         proportions.append(proportion)
     }
     
-    private func wrap(view: UIView, margins: UIEdgeInsets? = nil) -> UIView {
+    private func wrap(view: UIView, contentMode: FillMode) -> UIView {
+        switch contentMode {
+        case let .fill(margins):
+            return wrapFill(view: view, margins: margins)
+        case let .center(height, left, right):
+            return wrapCenter(view: view, height: height, left: left, right: right)
+        case .centerXY:
+            return wrapCenterXY(view: view)
+        }
+    }
+    
+    private func wrapFill(view: UIView, margins: UIEdgeInsets) -> UIView {
         let wrapperView = UIView()
         wrapperView.addSubviewLayout(view)
         
-        if let margins = margins {
-            view.topAnchor.constraint(equalTo: wrapperView.topAnchor, constant: margins.top).isActive = true
-            view.bottomAnchor.constraint(equalTo: wrapperView.bottomAnchor, constant: -margins.bottom).isActive = true
-            view.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: margins.left).isActive = true
-            view.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor, constant: -margins.right).isActive = true
-        } else {
-            view.topAnchor.constraint(equalTo: wrapperView.topAnchor).isActive = true
-            view.bottomAnchor.constraint(equalTo: wrapperView.bottomAnchor).isActive = true
-            view.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor).isActive = true
-            view.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor).isActive = true
-        }
+        view.topAnchor.constraint(equalTo: wrapperView.topAnchor, constant: margins.top).isActive = true
+        view.bottomAnchor.constraint(equalTo: wrapperView.bottomAnchor, constant: -margins.bottom).isActive = true
+        view.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: margins.left).isActive = true
+        view.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor, constant: -margins.right).isActive = true
+        
+        
+        return wrapperView
+    }
+    
+    private func wrapCenter(view: UIView, height: CGFloat, left: CGFloat, right: CGFloat) -> UIView {
+        let wrapperView = UIView()
+        wrapperView.addSubviewLayout(view)
+        
+        view.centerYAnchor.constraint(equalTo: wrapperView.centerYAnchor).isActive = true
+        view.heightAnchor.constraint(equalToConstant: height).isActive = true
+        view.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: left).isActive = true
+        view.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor, constant: -right).isActive = true
+        
+        
+        return wrapperView
+    }
+    
+    private func wrapCenterXY(view: UIView) -> UIView {
+        let wrapperView = UIView()
+        wrapperView.addSubviewLayout(view)
+        
+        view.centerXAnchor.constraint(equalTo: wrapperView.centerXAnchor).isActive = true
+        view.centerYAnchor.constraint(equalTo: wrapperView.centerYAnchor).isActive = true
+        
         
         return wrapperView
     }
@@ -63,8 +99,7 @@ class ProportionalStackView: UIView {
         let count = proportions.count
         
         views.enumerated().forEach { (offset, element) in
-            let abc = element.subviews.first!
-            abc.backgroundColor = UIColor.systemBlue.withAlphaComponent(CGFloat(Float(offset + 1) * (1.0/Float(count))))
+            element.backgroundColor = UIColor.systemBlue.withAlphaComponent(CGFloat(Float(offset + 1) * (1.0/Float(count))))
             
             print(CGFloat((offset + 1) * (1/count)))
         }

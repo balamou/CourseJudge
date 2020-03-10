@@ -66,11 +66,11 @@ class MainView: UIView {
         super.init(frame: frame)
         backgroundColor = .white
         
-        verticalStack.addArrangedSubview(logoImage, proportion: 0.3)
+        verticalStack.addArrangedSubview(logoImage, proportion: 0.3, contentMode: .centerXY)
         verticalStack.addArrangedSubview(appNameLabel, proportion: 0.05)
         verticalStack.addArrangedSubview(sloganLabel, proportion: 0.05)
-        verticalStack.addArrangedSubview(searchField, proportion: 0.2, UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20))
-        verticalStack.addArrangedSubview(searchButton, proportion: 0.1, UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
+        verticalStack.addArrangedSubview(searchField, proportion: 0.1, contentMode: .center(height: 40, left: 20, right: 20))
+        verticalStack.addArrangedSubview(searchButton, proportion: 0.1, contentMode: .fill(margins: UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)))
         
         addSubviewLayout(verticalStack)
         verticalStack.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
@@ -78,7 +78,7 @@ class MainView: UIView {
         verticalStack.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         verticalStack.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
         
-        verticalStack.colorViews()
+//        verticalStack.colorViews()
     }
     
     required init?(coder: NSCoder) {
