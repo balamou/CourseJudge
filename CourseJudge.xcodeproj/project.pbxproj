@@ -18,6 +18,8 @@
 		ED40FD0B241748CE00E0B939 /* UIViewController+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD03241748CE00E0B939 /* UIViewController+extensions.swift */; };
 		ED40FD0E241749FC00E0B939 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD0D241749FC00E0B939 /* Images.swift */; };
 		ED40FD11241815F700E0B939 /* ProportionalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD10241815F700E0B939 /* ProportionalStackView.swift */; };
+		ED40FD132418258100E0B939 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD122418258100E0B939 /* CustomTextField.swift */; };
+		ED40FD15241825AF00E0B939 /* StackView+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD14241825AF00E0B939 /* StackView+extensions.swift */; };
 		ED9D9F4A2416C080004C05D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9D9F492416C080004C05D9 /* AppDelegate.swift */; };
 		ED9D9F4C2416C080004C05D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9D9F4B2416C080004C05D9 /* SceneDelegate.swift */; };
 		ED9D9F4E2416C080004C05D9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9D9F4D2416C080004C05D9 /* MainViewController.swift */; };
@@ -37,6 +39,8 @@
 		ED40FD03241748CE00E0B939 /* UIViewController+extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+extensions.swift"; sourceTree = "<group>"; };
 		ED40FD0D241749FC00E0B939 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		ED40FD10241815F700E0B939 /* ProportionalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProportionalStackView.swift; sourceTree = "<group>"; };
+		ED40FD122418258100E0B939 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		ED40FD14241825AF00E0B939 /* StackView+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackView+extensions.swift"; sourceTree = "<group>"; };
 		ED9D9F462416C080004C05D9 /* CourseJudge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CourseJudge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED9D9F492416C080004C05D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED9D9F4B2416C080004C05D9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +88,7 @@
 				ED40FCFE241748CD00E0B939 /* UIColor+extensions.swift */,
 				ED40FCFD241748CD00E0B939 /* UIView+extensions.swift */,
 				ED40FD03241748CE00E0B939 /* UIViewController+extensions.swift */,
+				ED40FD14241825AF00E0B939 /* StackView+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -100,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				ED40FD10241815F700E0B939 /* ProportionalStackView.swift */,
+				ED40FD122418258100E0B939 /* CustomTextField.swift */,
 			);
 			path = "Reusable views";
 			sourceTree = "<group>";
@@ -232,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED40FD05241748CE00E0B939 /* UIView+extensions.swift in Sources */,
+				ED40FD15241825AF00E0B939 /* StackView+extensions.swift in Sources */,
 				ED40FD0A241748CE00E0B939 /* CGRect+extensions.swift in Sources */,
 				ED9D9F4E2416C080004C05D9 /* MainViewController.swift in Sources */,
 				ED40FD04241748CE00E0B939 /* Optional+extensions.swift in Sources */,
@@ -245,6 +252,7 @@
 				ED40FCFA241743DD00E0B939 /* Coordinator.swift in Sources */,
 				ED9D9F4A2416C080004C05D9 /* AppDelegate.swift in Sources */,
 				ED9D9F4C2416C080004C05D9 /* SceneDelegate.swift in Sources */,
+				ED40FD132418258100E0B939 /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

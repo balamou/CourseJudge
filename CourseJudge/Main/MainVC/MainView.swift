@@ -36,10 +36,9 @@ class MainView: UIView {
         return label
     }()
     
-    var searchField: UITextField = {
-        let textField = UITextField()
-        textField.backgroundColor = UIColor.black.withAlphaComponent(0.15)
-        textField.layer.cornerRadius = 5
+    var searchField: MessageTextField = {
+        let textField = MessageTextField()
+        textField.header = "University name"
         
         return textField
     }()
@@ -69,7 +68,7 @@ class MainView: UIView {
         verticalStack.addArrangedSubview(logoImage, proportion: 0.3, contentMode: .centerXY)
         verticalStack.addArrangedSubview(appNameLabel, proportion: 0.05)
         verticalStack.addArrangedSubview(sloganLabel, proportion: 0.05)
-        verticalStack.addArrangedSubview(searchField, proportion: 0.1, contentMode: .center(height: 40, left: 20, right: 20))
+        verticalStack.addArrangedSubview(searchField, proportion: 0.15, contentMode: .center(height: 55, left: 20, right: 20))
         verticalStack.addArrangedSubview(searchButton, proportion: 0.1, contentMode: .fill(margins: UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)))
         
         addSubviewLayout(verticalStack)
