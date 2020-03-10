@@ -39,7 +39,7 @@ class MainView: UIView {
     var searchField: UITextField = {
         let textField = UITextField()
         textField.backgroundColor = UIColor.black.withAlphaComponent(0.15)
-        textField.layer.cornerRadius = 2
+        textField.layer.cornerRadius = 5
         
         return textField
     }()
@@ -58,8 +58,6 @@ class MainView: UIView {
     
     var verticalStack: ProportionalStackView = {
         let stack = ProportionalStackView()
-//        stack.axis = .vertical
-//        stack.distribution = .fillEqually
         
         return stack
     }()
@@ -69,16 +67,18 @@ class MainView: UIView {
         backgroundColor = .white
         
         verticalStack.addArrangedSubview(logoImage, proportion: 0.3)
-        verticalStack.addArrangedSubview(appNameLabel, proportion: 0.1)
-        verticalStack.addArrangedSubview(sloganLabel, proportion: 0.1)
-        verticalStack.addArrangedSubview(searchField, proportion: 0.1)
-        verticalStack.addArrangedSubview(searchButton, proportion: 0.1)
+        verticalStack.addArrangedSubview(appNameLabel, proportion: 0.05)
+        verticalStack.addArrangedSubview(sloganLabel, proportion: 0.05)
+        verticalStack.addArrangedSubview(searchField, proportion: 0.2, UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20))
+        verticalStack.addArrangedSubview(searchButton, proportion: 0.1, UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
         
         addSubviewLayout(verticalStack)
         verticalStack.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
         verticalStack.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         verticalStack.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         verticalStack.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
+        
+        verticalStack.colorViews()
     }
     
     required init?(coder: NSCoder) {
