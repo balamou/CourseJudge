@@ -30,18 +30,32 @@ class UniversityCell: UITableViewCell {
         return label
     }()
     
+    var universityLogoImageView: UIImageView = {
+        let imageView = UIImageView(image: Images.logo)
+        imageView.tintColor = UIColor.random()
+        imageView.contentMode = .scaleAspectFit
+        
+        return imageView
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
         
         addSubviewLayout(universityNameLabel)
         addSubviewLayout(locationLabel)
+        addSubviewLayout(universityLogoImageView)
         
+        universityLogoImageView.topAnchor.constraint(equalTo: topAnchor, constant: 10.0).isActive = true
+        universityLogoImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10.0).isActive = true
+        universityLogoImageView.heightAnchor.constraint(equalToConstant: UniversityCell.rowHeight * (2/3)).isActive = true
+        universityLogoImageView.widthAnchor.constraint(equalToConstant: UniversityCell.rowHeight * (2/3)).isActive = true
+            
         universityNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10.0).isActive = true
-        universityNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20.0).isActive = true
+        universityNameLabel.leadingAnchor.constraint(equalTo: universityLogoImageView.trailingAnchor, constant: 20.0).isActive = true
         
         locationLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10.0).isActive = true
-        locationLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20.0).isActive = true
+        locationLabel.leadingAnchor.constraint(equalTo: universityLogoImageView.trailingAnchor, constant: 20.0).isActive = true
     }
     
     required init?(coder: NSCoder) {

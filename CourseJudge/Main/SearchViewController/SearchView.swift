@@ -53,7 +53,7 @@ class SearchView: UIView {
         stackView.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
         
         addSubviewLayout(searchResults)
-        searchResults.topAnchor.constraint(equalTo: stackView.bottomAnchor).isActive = true
+        searchResults.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 10.0).isActive = true
         searchResults.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         searchResults.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         searchResults.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
