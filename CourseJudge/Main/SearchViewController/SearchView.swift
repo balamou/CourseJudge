@@ -34,6 +34,14 @@ class SearchView: UIView {
         return tableView
     }()
     
+    var noResultsView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+//        view.isHidden = true
+        
+        return view
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
@@ -57,6 +65,34 @@ class SearchView: UIView {
         searchResults.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         searchResults.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         searchResults.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
+        
+        addSubviewLayout(noResultsView)
+        noResultsView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 10.0).isActive = true
+        noResultsView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        noResultsView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        noResultsView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
+        
+        /// No results view
+        let topLabel = UILabel()
+        let bottomLabel = UILabel()
+        
+        let request = NSMutableAttributedString(string: "Want to ", attributes: nil)
+        request.append(NSAttributedString(string: "request it?", attributes: [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue]))
+        
+        topLabel.text = "University Not Found"
+        bottomLabel.attributedText = request
+        
+        topLabel.font = UIFont(name: "Helvetica-Bold", size: 20.0)
+        bottomLabel.font = UIFont(name: "Helvetica-Light", size: 14.0)
+        
+        noResultsView.addSubviewLayout(topLabel)
+        noResultsView.addSubviewLayout(bottomLabel)
+        
+        topLabel.centerXAnchor.constraint(equalTo: noResultsView.centerXAnchor).isActive = true
+        topLabel.centerYAnchor.constraint(equalTo: noResultsView.centerYAnchor, constant: -80.0).isActive = true
+        
+        bottomLabel.topAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: 5.0).isActive = true
+        bottomLabel.centerXAnchor.constraint(equalTo: noResultsView.centerXAnchor).isActive = true
     }
     
     required init?(coder: NSCoder) {
