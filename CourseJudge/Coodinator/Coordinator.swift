@@ -27,8 +27,17 @@ extension Coordinator: MainViewControllerDelegate {
     
     func mainViewControllerTapSearch() {
         let searchVC = SearchViewController()
+        searchVC.delegate = self
         
         mainNavigationVC.pushViewController(searchVC, animated: true)
+    }
+    
+}
+
+extension Coordinator: SearchViewControllerDelegate {
+    
+    func searchViewControllerCancel() {
+        mainNavigationVC.popViewController(animated: true)
     }
     
 }

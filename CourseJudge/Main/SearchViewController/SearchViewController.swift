@@ -8,7 +8,12 @@
 
 import UIKit
 
+protocol SearchViewControllerDelegate: class {
+    func searchViewControllerCancel()
+}
+
 class SearchViewController: UIViewController {
+    weak var delegate: SearchViewControllerDelegate?
     private var searchView: SearchView!
        
     override func viewDidLoad() {
@@ -16,7 +21,13 @@ class SearchViewController: UIViewController {
         
         searchView = SearchView()
         view = searchView
+        
+        searchView.cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
+        
+        searchView.searchField.becomeFirstResponder()
     }
     
-    
+    @objc func cancelButtonTapped() {
+        delegate?.searchViewControllerCancel()
+    }
 }
