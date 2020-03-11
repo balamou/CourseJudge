@@ -9,9 +9,26 @@
 import UIKit
 
 class Coordinator {
+    private let mainNavigationVC: UINavigationController = UINavigationController()
     
     func start() -> UIViewController {
-        return MainViewController()
+        let mainVC = MainViewController()
+        mainVC.delegate = self
+        
+        mainNavigationVC.isNavigationBarHidden = true
+        mainNavigationVC.addChild(mainVC)
+        
+        return mainNavigationVC
+    }
+    
+}
+
+extension Coordinator: MainViewControllerDelegate {
+    
+    func mainViewControllerTapSearch() {
+        let searchVC = SearchViewController()
+        
+        mainNavigationVC.pushViewController(searchVC, animated: true)
     }
     
 }

@@ -8,8 +8,13 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
 
+protocol MainViewControllerDelegate: class {
+    func mainViewControllerTapSearch()
+}
+
+class MainViewController: UIViewController {
+    weak var delegate: MainViewControllerDelegate?
     private var mainView: MainView!
     
     override func viewDidLoad() {
@@ -17,8 +22,14 @@ class MainViewController: UIViewController {
         
         mainView = MainView()
         view = mainView
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tappedSearchField))
+        mainView.searchField.addGestureRecognizer(tap)
     }
-
+    
+    @objc func tappedSearchField() {
+        delegate?.mainViewControllerTapSearch()
+    }
 
 }
 
