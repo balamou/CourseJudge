@@ -28,6 +28,12 @@ class SearchView: UIView {
         return button
     }()
     
+    var searchResults: UITableView = {
+        let tableView = UITableView()
+        
+        return tableView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
@@ -45,6 +51,12 @@ class SearchView: UIView {
         stackView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         stackView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         stackView.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
+        
+        addSubviewLayout(searchResults)
+        searchResults.topAnchor.constraint(equalTo: stackView.bottomAnchor).isActive = true
+        searchResults.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        searchResults.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        searchResults.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
     
     required init?(coder: NSCoder) {
