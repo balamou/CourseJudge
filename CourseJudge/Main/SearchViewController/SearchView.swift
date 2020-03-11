@@ -10,9 +10,41 @@ import UIKit
 
 class SearchView: UIView {
     
+    var searchField: CustomTextField = {
+        let textField = CustomTextField(margin: UIEdgeInsets(top: 2, left: 30, bottom: 2, right: 0))
+        textField.placeholder = "Search"
+        textField.backgroundColor = UIColor.black.withAlphaComponent(0.2)
+        textField.layer.cornerRadius = 5
+        
+        return textField
+    }()
+    
+    var cancelButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Cancel", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = UIFont(name: "Helvetica", size: 15.0)
+        
+        return button
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
+        
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.layoutMargins = UIEdgeInsets(top: 15, left: 20, bottom: 5, right: 20)
+        stackView.spacing = 10.0
+        stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.addArrangedSubview(searchField)
+        stackView.addArrangedSubview(cancelButton)
+        
+        addSubviewLayout(stackView)
+        stackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        stackView.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
     }
     
     required init?(coder: NSCoder) {
