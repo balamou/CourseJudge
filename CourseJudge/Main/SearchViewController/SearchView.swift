@@ -37,7 +37,7 @@ class SearchView: UIView {
     var noResultsView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
-//        view.isHidden = true
+        view.isHidden = true
         
         return view
     }()
