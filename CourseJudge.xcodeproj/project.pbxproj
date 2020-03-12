@@ -25,6 +25,7 @@
 		ED40FD1C2418A47C00E0B939 /* UniversityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD1B2418A47C00E0B939 /* UniversityCell.swift */; };
 		ED40FD1E2418A92F00E0B939 /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD1D2418A92F00E0B939 /* UIColor+extension.swift */; };
 		ED40FD20241915D200E0B939 /* TransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD1F241915D200E0B939 /* TransitionAnimator.swift */; };
+		ED40FD222419EA7D00E0B939 /* UniversityFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD212419EA7D00E0B939 /* UniversityFetcher.swift */; };
 		ED9D9F4A2416C080004C05D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9D9F492416C080004C05D9 /* AppDelegate.swift */; };
 		ED9D9F4C2416C080004C05D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9D9F4B2416C080004C05D9 /* SceneDelegate.swift */; };
 		ED9D9F4E2416C080004C05D9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9D9F4D2416C080004C05D9 /* MainViewController.swift */; };
@@ -51,6 +52,7 @@
 		ED40FD1B2418A47C00E0B939 /* UniversityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityCell.swift; sourceTree = "<group>"; };
 		ED40FD1D2418A92F00E0B939 /* UIColor+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
 		ED40FD1F241915D200E0B939 /* TransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionAnimator.swift; sourceTree = "<group>"; };
+		ED40FD212419EA7D00E0B939 /* UniversityFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityFetcher.swift; sourceTree = "<group>"; };
 		ED9D9F462416C080004C05D9 /* CourseJudge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CourseJudge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED9D9F492416C080004C05D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED9D9F4B2416C080004C05D9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,12 +126,21 @@
 		ED40FD1624182D6800E0B939 /* SearchViewController */ = {
 			isa = PBXGroup;
 			children = (
+				ED40FD232419EA8600E0B939 /* Fetchers */,
 				ED40FD1724182D8800E0B939 /* SearchViewController.swift */,
 				ED40FD1924182E1B00E0B939 /* SearchView.swift */,
 				ED40FD1B2418A47C00E0B939 /* UniversityCell.swift */,
 				ED40FD1F241915D200E0B939 /* TransitionAnimator.swift */,
 			);
 			path = SearchViewController;
+			sourceTree = "<group>";
+		};
+		ED40FD232419EA8600E0B939 /* Fetchers */ = {
+			isa = PBXGroup;
+			children = (
+				ED40FD212419EA7D00E0B939 /* UniversityFetcher.swift */,
+			);
+			path = Fetchers;
 			sourceTree = "<group>";
 		};
 		ED9D9F3D2416C080004C05D9 = {
@@ -265,6 +276,7 @@
 				ED40FD0A241748CE00E0B939 /* CGRect+extensions.swift in Sources */,
 				ED40FD1824182D8800E0B939 /* SearchViewController.swift in Sources */,
 				ED9D9F4E2416C080004C05D9 /* MainViewController.swift in Sources */,
+				ED40FD222419EA7D00E0B939 /* UniversityFetcher.swift in Sources */,
 				ED40FD04241748CE00E0B939 /* Optional+extensions.swift in Sources */,
 				ED40FD0E241749FC00E0B939 /* Images.swift in Sources */,
 				ED40FD1E2418A92F00E0B939 /* UIColor+extension.swift in Sources */,

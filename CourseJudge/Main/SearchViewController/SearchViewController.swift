@@ -25,7 +25,8 @@ class SearchViewController: UIViewController {
     private var universities: [University] = [ .init(name: "UOttawa", logo: Images.logo, location: "75 Laurier Ave E, Ottawa, ON K1N 6N5"),
                                                .init(name: "Carleton", logo: Images.logo, location: "1125 Colonel By Dr, Ottawa, ON K1S 5B6"),
                                                .init(name: "Algonquin College", logo: Images.logo, location: "1385 Woodroffe Ave, Nepean, ON K2G 1V8")]
-       
+    private var fetcher: UniversityFetcher = UniversitiesSearchModule()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,6 +36,7 @@ class SearchViewController: UIViewController {
         searchView.cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
         
         searchView.searchField.becomeFirstResponder()
+        searchView.searchField.addTarget(self, action: #selector(textFieldTyping), for: .editingChanged)
         
         searchView.searchResults.separatorStyle = .none
         searchView.searchResults.rowHeight = UniversityCell.rowHeight
@@ -45,6 +47,22 @@ class SearchViewController: UIViewController {
     
     @objc func cancelButtonTapped() {
         delegate?.searchViewControllerCancel()
+    }
+    
+    @objc func textFieldTyping(textField: UITextField) {
+        guard let uniPrefix = textField.text else { return }
+        
+        let results = fetcher.searchUniversity(by: uniPrefix)
+        
+        guard !results.isEmpty else {
+            searchView.noResultsView.isHidden = false
+            return
+        }
+        
+        searchView.noResultsView.isHidden = true
+        
+        universities = results
+        searchView.searchResults.reloadData()
     }
 }
 
