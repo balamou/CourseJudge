@@ -33,9 +33,8 @@ class UniversityViewController: UIViewController {
     private var universityView: UniversityView!
     
     private let university: University
-    private let courses: [Course] = [.init(courseName: "User interface analysis", courseCode: "CSI 3130", numberOfRatings: 10, rating: .five, difficulty: .medium),
-                                     .init(courseName: "Computer Graphics", courseCode: "CSI 3140", numberOfRatings: 23, rating: .two, difficulty: .hard),
-                                     .init(courseName: "Data structures", courseCode: "CSI 3150", numberOfRatings: 54, rating: .one, difficulty: .hard)]
+    private let fetcher: CoursesFetcher = CoursesSearchModule()
+    private var courses: [Course] = CoursesSearchModule().trendingCourses()
     
     init(university: University) {
         self.university = university
@@ -99,16 +98,39 @@ extension UniversityViewController: UITableViewDataSource {
             universityHeaderCell.universityNameLabel.text = university.name
             universityHeaderCell.universityLocationLabel.text = university.location
             universityHeaderCell.universityLogoImageView.image = university.logo
+            universityHeaderCell.delegate = self
             
             return universityHeaderCell
         } else {
             let coursesCell =  tableView.dequeueReusableCell(withIdentifier: UniversityCourseCell.identifier, for: indexPath) as! UniversityCourseCell
             
             let course = courses[indexPath.row]
-            coursesCell.courseNameLabel.text = course.courseName
+            coursesCell.courseNameLabel.text = course.courseCode
+            coursesCell.courseCodeLabel.text = course.courseName
+            coursesCell.numberOfRatingsLabel.text = "\(course.numberOfRatings) ratings"
                       
             return coursesCell
         }
+    }
+}
+
+extension UniversityViewController: UniversityHeaderCellDelegate {
+    
+    func textFieldTyping(textField: UITextField, trendingLabel: UILabel) {
+        guard let coursePrefix = textField.text else { return }
+        trendingLabel.isHidden = !coursePrefix.isEmpty
+        
+        let results = fetcher.searchCourse(by: coursePrefix)
+        
+        guard !results.isEmpty else {
+//            searchView.noResultsView.isHidden = false
+            return
+        }
+        
+//        searchView.noResultsView.isHidden = true
+        
+        courses = results
+        universityView.universityTableView.reloadSections(IndexSet(integer: 1), with: .fade)
     }
     
 }

@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol UniversityHeaderCellDelegate: class {
+    func textFieldTyping(textField: UITextField, trendingLabel: UILabel)
+}
+
 class UniversityHeaderCell: UITableViewCell {
+    weak var delegate: UniversityHeaderCellDelegate?
+    
     static let identifier = "UnivercityHeaderCell"
     static let rowHeight: CGFloat = 300
     
@@ -43,6 +49,8 @@ class UniversityHeaderCell: UITableViewCell {
         textfield.backgroundColor = UIColor.black.withAlphaComponent(0.15)
         textfield.placeholder = "Search course"
         textfield.layer.cornerRadius = 5
+        textfield.autocorrectionType = .no
+        textfield.autocapitalizationType = .none
         
         return textfield
     }()
@@ -83,6 +91,13 @@ class UniversityHeaderCell: UITableViewCell {
         
         trendingLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         trendingLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20.0).isActive = true
+        
+        
+        courseSearchField.addTarget(self, action: #selector(textFieldTyping), for: .editingChanged)
+    }
+    
+    @objc func textFieldTyping(textField: UITextField) {
+        delegate?.textFieldTyping(textField: textField, trendingLabel: trendingLabel) // considering there is only one search text field we do not need to add an identifier
     }
     
     required init?(coder: NSCoder) {
@@ -113,6 +128,7 @@ class UniversityCourseCell: UITableViewCell {
         let label = UILabel()
         label.text = "Computer graphics"
         label.font = UIFont.systemFont(ofSize: 13)
+        label.textColor = UIColor.black.withAlphaComponent(0.8)
         
         return label
     }()
@@ -128,6 +144,21 @@ class UniversityCourseCell: UITableViewCell {
         button.isOpaque = true
         
         return button
+    }()
+    
+    var numberOfRatingsLabel: UILabel = {
+        let label = UILabel()
+        label.text = "1,050 ratings"
+        label.font = UIFont.systemFont(ofSize: 13)
+        
+        return label
+    }()
+    
+    var overallRating: UILabel = {
+        let label = UILabel()
+        label.text = "5 out of 5"
+        
+        return label
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -155,6 +186,11 @@ class UniversityCourseCell: UITableViewCell {
         
         rateButton.centerYAnchor.constraint(equalTo: wrapperView.centerYAnchor).isActive = true
         rateButton.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor, constant: -10.0).isActive = true
+        
+        wrapperView.addSubviewLayout(numberOfRatingsLabel)
+        
+        numberOfRatingsLabel.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: 10.0).isActive = true
+        numberOfRatingsLabel.bottomAnchor.constraint(equalTo: wrapperView.bottomAnchor, constant: -10.0).isActive = true
     }
     
     required init?(coder: NSCoder) {
