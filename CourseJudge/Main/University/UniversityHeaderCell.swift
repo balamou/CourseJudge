@@ -38,6 +38,15 @@ class UniversityHeaderCell: UITableViewCell {
         return label
     }()
     
+    var courseSearchField: SearchTextField = {
+        let textfield = SearchTextField()
+        textfield.backgroundColor = UIColor.black.withAlphaComponent(0.15)
+        textfield.placeholder = "Search course"
+        textfield.layer.cornerRadius = 5
+        
+        return textfield
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
@@ -45,16 +54,22 @@ class UniversityHeaderCell: UITableViewCell {
         addSubviewLayout(universityLogoImageView)
         addSubviewLayout(universityNameLabel)
         addSubviewLayout(universityLocationLabel)
+        addSubviewLayout(courseSearchField)
         
         universityLogoImageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         universityLogoImageView.topAnchor.constraint(equalTo: topAnchor, constant: 50.0).isActive = true
         universityLogoImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.4).isActive = true
         
-        universityNameLabel.topAnchor.constraint(equalTo: universityLogoImageView.bottomAnchor, constant: 20).isActive = true
+        universityNameLabel.topAnchor.constraint(equalTo: universityLogoImageView.bottomAnchor, constant: 10).isActive = true
         universityNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
         universityLocationLabel.topAnchor.constraint(equalTo: universityNameLabel.bottomAnchor, constant: 5).isActive = true
         universityLocationLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        
+        courseSearchField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
+        courseSearchField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
+        courseSearchField.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20).isActive = true
+        courseSearchField.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
     }
     
     required init?(coder: NSCoder) {

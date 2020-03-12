@@ -37,7 +37,7 @@ class SearchTextField: CustomTextField {
     private let searchImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = Images.search
-        imageView.tintColor = .black
+        imageView.tintColor = UIColor.black.withAlphaComponent(0.6)
         imageView.contentMode = .scaleAspectFit
         
         return imageView
