@@ -24,6 +24,7 @@
 		ED40FD1A24182E1B00E0B939 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD1924182E1B00E0B939 /* SearchView.swift */; };
 		ED40FD1C2418A47C00E0B939 /* UniversityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD1B2418A47C00E0B939 /* UniversityCell.swift */; };
 		ED40FD1E2418A92F00E0B939 /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD1D2418A92F00E0B939 /* UIColor+extension.swift */; };
+		ED40FD20241915D200E0B939 /* TransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD1F241915D200E0B939 /* TransitionAnimator.swift */; };
 		ED9D9F4A2416C080004C05D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9D9F492416C080004C05D9 /* AppDelegate.swift */; };
 		ED9D9F4C2416C080004C05D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9D9F4B2416C080004C05D9 /* SceneDelegate.swift */; };
 		ED9D9F4E2416C080004C05D9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9D9F4D2416C080004C05D9 /* MainViewController.swift */; };
@@ -49,6 +50,7 @@
 		ED40FD1924182E1B00E0B939 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		ED40FD1B2418A47C00E0B939 /* UniversityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityCell.swift; sourceTree = "<group>"; };
 		ED40FD1D2418A92F00E0B939 /* UIColor+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
+		ED40FD1F241915D200E0B939 /* TransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionAnimator.swift; sourceTree = "<group>"; };
 		ED9D9F462416C080004C05D9 /* CourseJudge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CourseJudge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED9D9F492416C080004C05D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED9D9F4B2416C080004C05D9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				ED40FD1724182D8800E0B939 /* SearchViewController.swift */,
 				ED40FD1924182E1B00E0B939 /* SearchView.swift */,
 				ED40FD1B2418A47C00E0B939 /* UniversityCell.swift */,
+				ED40FD1F241915D200E0B939 /* TransitionAnimator.swift */,
 			);
 			path = SearchViewController;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				ED40FD04241748CE00E0B939 /* Optional+extensions.swift in Sources */,
 				ED40FD0E241749FC00E0B939 /* Images.swift in Sources */,
 				ED40FD1E2418A92F00E0B939 /* UIColor+extension.swift in Sources */,
+				ED40FD20241915D200E0B939 /* TransitionAnimator.swift in Sources */,
 				ED40FD06241748CE00E0B939 /* UIColor+extensions.swift in Sources */,
 				ED40FD08241748CE00E0B939 /* String+extensions.swift in Sources */,
 				ED40FD0B241748CE00E0B939 /* UIViewController+extensions.swift in Sources */,

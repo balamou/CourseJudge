@@ -17,6 +17,7 @@ class Coordinator {
         
         mainNavigationVC.isNavigationBarHidden = true
         mainNavigationVC.addChild(mainVC)
+        mainNavigationVC.delegate = mainVC
         
         return mainNavigationVC
     }
