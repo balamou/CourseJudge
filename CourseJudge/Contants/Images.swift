@@ -11,5 +11,6 @@ import UIKit
 class Images {
     
     static let logo = UIImage(named: "logo")!
+    static let back = UIImage(named: "back")!
     
 }

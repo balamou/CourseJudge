@@ -12,14 +12,14 @@ class UniversityView: UIView {
     
     var backButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Back", for: .normal)
-        button.setTitleColor(.black, for: .normal)
+        button.setImage(Images.back, for: .normal)
         
         return button
     }()
     
     var universityTableView: UITableView = {
         let tableView = UITableView()
+        tableView.separatorStyle = .none
         
         return tableView
     }()

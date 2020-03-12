@@ -13,7 +13,19 @@ protocol UniversityViewControllerDelegate: class {
 }
 
 struct Course {
+    enum Stars: Int {
+        case one, two, three, four, five
+    }
+    
+    enum Difficulty {
+        case easy, medium, hard
+    }
+    
     let courseName: String // User interface analysis, Computer Graphics, etc.
+    let courseCode: String // CSI 3140
+    let numberOfRatings: Int // 1053 ratings
+    let rating: Stars // stars out of five
+    let difficulty: Difficulty
 }
 
 class UniversityViewController: UIViewController {
@@ -21,9 +33,9 @@ class UniversityViewController: UIViewController {
     private var universityView: UniversityView!
     
     private let university: University
-    private let courses: [Course] = [.init(courseName: "User interface analysis"),
-                                     .init(courseName: "Computer Graphics"),
-                                     .init(courseName: "Data structures")]
+    private let courses: [Course] = [.init(courseName: "User interface analysis", courseCode: "CSI 3130", numberOfRatings: 10, rating: .five, difficulty: .medium),
+                                     .init(courseName: "Computer Graphics", courseCode: "CSI 3140", numberOfRatings: 23, rating: .two, difficulty: .hard),
+                                     .init(courseName: "Data structures", courseCode: "CSI 3150", numberOfRatings: 54, rating: .one, difficulty: .hard)]
     
     init(university: University) {
         self.university = university
@@ -60,6 +72,14 @@ extension UniversityViewController: UITableViewDelegate {
 
 extension UniversityViewController: UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return UniversityHeaderCell.rowHeight
+        } else {
+            return UniversityCourseCell.rowHeight
+        }
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -77,6 +97,8 @@ extension UniversityViewController: UITableViewDataSource {
             let universityHeaderCell = tableView.dequeueReusableCell(withIdentifier: UniversityHeaderCell.identifier, for: indexPath) as! UniversityHeaderCell
             
             universityHeaderCell.universityNameLabel.text = university.name
+            universityHeaderCell.universityLocationLabel.text = university.location
+            universityHeaderCell.universityLogoImageView.image = university.logo
             
             return universityHeaderCell
         } else {
