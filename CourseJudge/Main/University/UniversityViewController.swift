@@ -36,6 +36,8 @@ class UniversityViewController: UIViewController {
     private let fetcher: CoursesFetcher = CoursesSearchModule()
     private var courses: [Course] = CoursesSearchModule().trendingCourses()
     
+    private var noResults: Bool = false
+    
     init(university: University) {
         self.university = university
         super.init(nibName: nil, bundle: nil)
@@ -58,6 +60,7 @@ class UniversityViewController: UIViewController {
         
         universityView.universityTableView.register(UniversityHeaderCell.self, forCellReuseIdentifier: UniversityHeaderCell.identifier)
         universityView.universityTableView.register(UniversityCourseCell.self, forCellReuseIdentifier: UniversityCourseCell.identifier)
+        universityView.universityTableView.register(NoResultsCell.self, forCellReuseIdentifier: NoResultsCell.identifier)
     }
     
     @objc func back() {
@@ -74,20 +77,24 @@ extension UniversityViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
             return UniversityHeaderCell.rowHeight
-        } else {
+        } else if indexPath.section == 1 {
             return UniversityCourseCell.rowHeight
+        } else {
+            return NoResultsCell.rowHeight
         }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 1
-        } else {
+        } else if section == 1 {
             return courses.count
+        } else {
+            return noResults ? 1 : 0
         }
     }
     
@@ -101,7 +108,7 @@ extension UniversityViewController: UITableViewDataSource {
             universityHeaderCell.delegate = self
             
             return universityHeaderCell
-        } else {
+        } else if indexPath.section == 1 {
             let coursesCell =  tableView.dequeueReusableCell(withIdentifier: UniversityCourseCell.identifier, for: indexPath) as! UniversityCourseCell
             
             let course = courses[indexPath.row]
@@ -110,6 +117,10 @@ extension UniversityViewController: UITableViewDataSource {
             coursesCell.numberOfRatingsLabel.text = "\(course.numberOfRatings) ratings"
                       
             return coursesCell
+        } else {
+            let noresults = tableView.dequeueReusableCell(withIdentifier: NoResultsCell.identifier, for: indexPath) as! NoResultsCell
+            
+            return noresults
         }
     }
 }
@@ -121,16 +132,11 @@ extension UniversityViewController: UniversityHeaderCellDelegate {
         trendingLabel.isHidden = !coursePrefix.isEmpty
         
         let results = fetcher.searchCourse(by: coursePrefix)
-        
-        guard !results.isEmpty else {
-//            searchView.noResultsView.isHidden = false
-            return
-        }
-        
-//        searchView.noResultsView.isHidden = true
-        
         courses = results
-        universityView.universityTableView.reloadSections(IndexSet(integer: 1), with: .fade)
+        
+        noResults = results.isEmpty
+        
+        universityView.universityTableView.reloadSections(IndexSet(integersIn: 1...2), with: .fade)
     }
     
 }

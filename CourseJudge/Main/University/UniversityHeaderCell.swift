@@ -197,3 +197,49 @@ class UniversityCourseCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+
+class NoResultsCell: UITableViewCell {
+    static let identifier = "NoResultsCell"
+    static let rowHeight: CGFloat = 130
+    
+    
+    let topLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Course Not Found"
+        label.font = UIFont(name: "Helvetica-Bold", size: 20.0)
+        
+        return label
+    }()
+    
+    let bottomLabel: UILabel = {
+        let label = UILabel()
+        let request = NSMutableAttributedString(string: "Want to ", attributes: nil)
+        request.append(NSAttributedString(string: "request it?", attributes: [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue]))
+        
+        label.font = UIFont(name: "Helvetica-Light", size: 14.0)
+        label.attributedText = request
+        
+        return label
+    }()
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        selectionStyle = .none
+        
+       
+        addSubviewLayout(topLabel)
+        addSubviewLayout(bottomLabel)
+        
+        topLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        topLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        
+        bottomLabel.topAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: 5.0).isActive = true
+        bottomLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
