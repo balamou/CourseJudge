@@ -10,6 +10,7 @@ import UIKit
 
 protocol SearchViewControllerDelegate: class {
     func searchViewControllerCancel()
+    func searchViewControllerRequestUniversity()
 }
 
 struct University {
@@ -36,6 +37,10 @@ class SearchViewController: UIViewController {
         searchView.searchField.becomeFirstResponder()
         searchView.searchField.addTarget(self, action: #selector(textFieldTyping), for: .editingChanged)
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(requestUniversity))
+        searchView.bottomLabel.addGestureRecognizer(tap)
+        searchView.bottomLabel.isUserInteractionEnabled = true
+        
         searchView.searchResults.separatorStyle = .none
         searchView.searchResults.rowHeight = UniversityCell.rowHeight
         searchView.searchResults.delegate = self
@@ -61,6 +66,10 @@ class SearchViewController: UIViewController {
         
         universities = results
         searchView.searchResults.reloadData()
+    }
+    
+    @objc func requestUniversity() {
+        delegate?.searchViewControllerRequestUniversity()
     }
 }
 

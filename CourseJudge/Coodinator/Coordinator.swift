@@ -41,4 +41,10 @@ extension Coordinator: SearchViewControllerDelegate {
         mainNavigationVC.popViewController(animated: true)
     }
     
+    func searchViewControllerRequestUniversity() {
+        let requestUniVC = RequestUniversityViewController()
+        
+        mainNavigationVC.pushViewController(requestUniVC, animated: true)
+    }
+    
 }

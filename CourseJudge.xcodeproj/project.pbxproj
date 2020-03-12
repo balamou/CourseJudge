@@ -26,6 +26,7 @@
 		ED40FD1E2418A92F00E0B939 /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD1D2418A92F00E0B939 /* UIColor+extension.swift */; };
 		ED40FD20241915D200E0B939 /* TransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD1F241915D200E0B939 /* TransitionAnimator.swift */; };
 		ED40FD222419EA7D00E0B939 /* UniversityFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD212419EA7D00E0B939 /* UniversityFetcher.swift */; };
+		ED40FD262419F36100E0B939 /* RequestUniversityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD252419F36100E0B939 /* RequestUniversityViewController.swift */; };
 		ED9D9F4A2416C080004C05D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9D9F492416C080004C05D9 /* AppDelegate.swift */; };
 		ED9D9F4C2416C080004C05D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9D9F4B2416C080004C05D9 /* SceneDelegate.swift */; };
 		ED9D9F4E2416C080004C05D9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9D9F4D2416C080004C05D9 /* MainViewController.swift */; };
@@ -53,6 +54,7 @@
 		ED40FD1D2418A92F00E0B939 /* UIColor+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
 		ED40FD1F241915D200E0B939 /* TransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionAnimator.swift; sourceTree = "<group>"; };
 		ED40FD212419EA7D00E0B939 /* UniversityFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityFetcher.swift; sourceTree = "<group>"; };
+		ED40FD252419F36100E0B939 /* RequestUniversityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestUniversityViewController.swift; sourceTree = "<group>"; };
 		ED9D9F462416C080004C05D9 /* CourseJudge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CourseJudge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED9D9F492416C080004C05D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED9D9F4B2416C080004C05D9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +145,14 @@
 			path = Fetchers;
 			sourceTree = "<group>";
 		};
+		ED40FD242419F33000E0B939 /* Request University */ = {
+			isa = PBXGroup;
+			children = (
+				ED40FD252419F36100E0B939 /* RequestUniversityViewController.swift */,
+			);
+			path = "Request University";
+			sourceTree = "<group>";
+		};
 		ED9D9F3D2416C080004C05D9 = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +207,7 @@
 				ED40FD0F241815D000E0B939 /* Reusable views */,
 				ED40FCF52417435100E0B939 /* MainVC */,
 				ED40FD1624182D6800E0B939 /* SearchViewController */,
+				ED40FD242419F33000E0B939 /* Request University */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -288,6 +299,7 @@
 				ED40FCF72417436A00E0B939 /* MainView.swift in Sources */,
 				ED40FD09241748CE00E0B939 /* Array+extensions.swift in Sources */,
 				ED40FD11241815F700E0B939 /* ProportionalStackView.swift in Sources */,
+				ED40FD262419F36100E0B939 /* RequestUniversityViewController.swift in Sources */,
 				ED40FCFA241743DD00E0B939 /* Coordinator.swift in Sources */,
 				ED9D9F4A2416C080004C05D9 /* AppDelegate.swift in Sources */,
 				ED9D9F4C2416C080004C05D9 /* SceneDelegate.swift in Sources */,

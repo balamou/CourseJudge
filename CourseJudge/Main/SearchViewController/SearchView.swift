@@ -44,6 +44,8 @@ class SearchView: UIView {
         return view
     }()
     
+    let bottomLabel = UILabel()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
@@ -76,7 +78,6 @@ class SearchView: UIView {
         
         /// No results view
         let topLabel = UILabel()
-        let bottomLabel = UILabel()
         
         let request = NSMutableAttributedString(string: "Want to ", attributes: nil)
         request.append(NSAttributedString(string: "request it?", attributes: [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue]))
