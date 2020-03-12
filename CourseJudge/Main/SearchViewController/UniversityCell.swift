@@ -47,7 +47,7 @@ class UniversityCell: UITableViewCell {
         addSubviewLayout(universityLogoImageView)
         
         universityLogoImageView.topAnchor.constraint(equalTo: topAnchor, constant: 10.0).isActive = true
-        universityLogoImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10.0).isActive = true
+        universityLogoImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20.0).isActive = true
         universityLogoImageView.heightAnchor.constraint(equalToConstant: UniversityCell.rowHeight * (2/3)).isActive = true
         universityLogoImageView.widthAnchor.constraint(equalToConstant: UniversityCell.rowHeight * (2/3)).isActive = true
             

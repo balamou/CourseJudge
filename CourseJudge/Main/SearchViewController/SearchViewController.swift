@@ -22,9 +22,7 @@ class SearchViewController: UIViewController {
     weak var delegate: SearchViewControllerDelegate?
     private var searchView: SearchView!
     
-    private var universities: [University] = [ .init(name: "UOttawa", logo: Images.logo, location: "75 Laurier Ave E, Ottawa, ON K1N 6N5"),
-                                               .init(name: "Carleton", logo: Images.logo, location: "1125 Colonel By Dr, Ottawa, ON K1S 5B6"),
-                                               .init(name: "Algonquin College", logo: Images.logo, location: "1385 Woodroffe Ave, Nepean, ON K2G 1V8")]
+    private var universities: [University] = UniversitiesSearchModule().topSearchedUniversities()
     private var fetcher: UniversityFetcher = UniversitiesSearchModule()
     
     override func viewDidLoad() {

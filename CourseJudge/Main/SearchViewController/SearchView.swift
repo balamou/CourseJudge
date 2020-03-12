@@ -15,6 +15,8 @@ class SearchView: UIView {
         textField.placeholder = "Search"
         textField.backgroundColor = UIColor.black.withAlphaComponent(0.15)
         textField.layer.cornerRadius = 5
+        textField.autocorrectionType = .no
+        textField.autocapitalizationType = .none
         
         return textField
     }()
