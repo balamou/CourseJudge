@@ -11,9 +11,9 @@ import UIKit
 class CustomTextField: UITextField {
     private var padding = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
     
-    convenience init(margin: UIEdgeInsets) {
-        self.init(frame: .zero)
+    init(margin: UIEdgeInsets) {
         self.padding = margin
+        super.init(frame: .zero)
     }
     
     override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {
@@ -28,13 +28,41 @@ class CustomTextField: UITextField {
         return bounds.inset(by: padding)
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+}
+
+class SearchTextField: CustomTextField {
+    private let searchImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = Images.search
+        imageView.tintColor = .black
+        imageView.contentMode = .scaleAspectFit
+        
+        return imageView
+    }()
+    
+    convenience init() {
+        self.init(margin: UIEdgeInsets(top: 2, left: 34, bottom: 2, right: 2))
+    }
+    
+    override init(margin: UIEdgeInsets) {
+        super.init(margin: margin)
+        
+        setupViews()
+    }
+    
+    private func setupViews() {
+        addSubviewLayout(searchImageView)
+        searchImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        searchImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10.0).isActive = true
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
 }
 
 class MessageTextField: UIView {

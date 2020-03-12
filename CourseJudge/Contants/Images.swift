@@ -12,5 +12,6 @@ class Images {
     
     static let logo = UIImage(named: "logo")!
     static let back = UIImage(named: "back")!
+    static let search = UIImage(named: "search")!
     
 }

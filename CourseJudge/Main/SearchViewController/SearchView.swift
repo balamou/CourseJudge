@@ -10,8 +10,8 @@ import UIKit
 
 class SearchView: UIView {
     
-    var searchField: CustomTextField = {
-        let textField = CustomTextField(margin: UIEdgeInsets(top: 2, left: 30, bottom: 2, right: 0))
+    var searchField: SearchTextField = {
+        let textField = SearchTextField()
         textField.placeholder = "Search"
         textField.backgroundColor = UIColor.black.withAlphaComponent(0.15)
         textField.layer.cornerRadius = 5
