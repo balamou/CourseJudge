@@ -13,13 +13,28 @@ class UniversityView: UIView {
     var backButton: UIButton = {
         let button = UIButton()
         button.setTitle("Back", for: .normal)
+        button.setTitleColor(.black, for: .normal)
         
         return button
     }()
     
+    var universityTableView: UITableView = {
+        let tableView = UITableView()
+        
+        return tableView
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        backgroundColor = .white
+        
+        addSubviewLayout(universityTableView)
+        
+        universityTableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
+        universityTableView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        universityTableView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        universityTableView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
         addSubviewLayout(backButton)
         

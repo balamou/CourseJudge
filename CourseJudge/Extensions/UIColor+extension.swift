@@ -16,7 +16,11 @@ extension CGFloat {
 
 extension UIColor {
     static func random() -> UIColor {
-        return UIColor(hue: .random(in: 0...1), saturation: 0.8, brightness: 1, alpha: 1)
+        let h = CGFloat.random(in: 0...360)/360
+        let s = CGFloat.random(in: 42...98)/360
+        let l = CGFloat.random(in: 40...90)/360
+        
+        return UIColor(hue: h, saturation: s, brightness: l, alpha: 1)
     }
     
     static func random(seed: String) -> UIColor {
