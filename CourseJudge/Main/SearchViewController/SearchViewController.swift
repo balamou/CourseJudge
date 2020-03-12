@@ -11,6 +11,7 @@ import UIKit
 protocol SearchViewControllerDelegate: class {
     func searchViewControllerCancel()
     func searchViewControllerRequestUniversity()
+    func searchViewController(_ searchViewController: SearchViewController, didSelect university: University)
 }
 
 struct University {
@@ -74,6 +75,12 @@ class SearchViewController: UIViewController {
 }
 
 extension SearchViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedUniversity = universities[indexPath.row]
+        
+        delegate?.searchViewController(self, didSelect: selectedUniversity)
+    }
     
 }
 

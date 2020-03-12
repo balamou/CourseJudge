@@ -47,4 +47,9 @@ extension Coordinator: SearchViewControllerDelegate {
         mainNavigationVC.pushViewController(requestUniVC, animated: true)
     }
     
+    func searchViewController(_ searchViewController: SearchViewController, didSelect university: University) {
+        let universityVC = UniversityViewController()
+        
+        mainNavigationVC.pushViewController(universityVC, animated: true)
+    }
 }
