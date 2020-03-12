@@ -10,6 +10,7 @@ import UIKit
 
 class Coordinator {
     private let mainNavigationVC: UINavigationController = UINavigationController()
+    private let fadingAnimation = FadingAnimationDelegate()
     
     func start() -> UIViewController {
         let mainVC = MainViewController()
@@ -17,7 +18,7 @@ class Coordinator {
         
         mainNavigationVC.isNavigationBarHidden = true
         mainNavigationVC.addChild(mainVC)
-        mainNavigationVC.delegate = mainVC
+        mainNavigationVC.delegate = fadingAnimation
         
         return mainNavigationVC
     }
@@ -51,6 +52,7 @@ extension Coordinator: SearchViewControllerDelegate {
         let universityVC = UniversityViewController(university: university)
         universityVC.delegate = self
         
+        mainNavigationVC.delegate = nil
         mainNavigationVC.pushViewController(universityVC, animated: true)
     }
 }
@@ -58,7 +60,10 @@ extension Coordinator: SearchViewControllerDelegate {
 extension Coordinator: UniversityViewControllerDelegate {
     
     func universityViewControllerBack() {
-        mainNavigationVC.popViewController(animated: true)
+        mainNavigationVC.popViewController(animated: true) {
+            self.mainNavigationVC.delegate = self.fadingAnimation
+        }
     }
     
 }
+
