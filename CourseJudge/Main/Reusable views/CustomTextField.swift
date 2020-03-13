@@ -118,6 +118,16 @@ class MessageTextField: UIView {
         return textField
     }()
     
+    let errorLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Error"
+        label.font = UIFont(name: "Helvetica", size: 12.0)
+        label.textColor = UIColor.systemRed
+        label.isHidden = true
+        
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -129,9 +139,28 @@ class MessageTextField: UIView {
         
         stackView.addArrangedSubview(messageLabel)
         stackView.addArrangedSubview(textField)
+        
+        textField.addSubviewLayout(errorLabel)
+        
+        errorLabel.centerYAnchor.constraint(equalTo: textField.centerYAnchor).isActive = true
+        errorLabel.trailingAnchor.constraint(equalTo: textField.trailingAnchor, constant: -10.0).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    func setError(message: String) {
+        errorLabel.text = message
+        errorLabel.isHidden = false
+        
+        layer.borderWidth = 2.0
+        layer.borderColor = UIColor.systemRed.withAlphaComponent(0.7).cgColor
+    }
+    
+    func setNormal() {
+        errorLabel.isHidden = true
+        
+        layer.borderWidth = 0.0
     }
 }

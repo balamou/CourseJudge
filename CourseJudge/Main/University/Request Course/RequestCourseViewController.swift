@@ -29,15 +29,22 @@ class RequestCourseViewController: UIViewController {
     @objc func requestButtonTapped() {
         let courseCode = requestCourseView.courseCode.textField.text!
         let courseName = requestCourseView.courseName.textField.text!
+        let errorMessage = "cannot be empty"
         
         switch (courseCode.isEmpty, courseName.isEmpty) {
         case (true, true):
-            break
+            requestCourseView.courseCode.setError(message: errorMessage)
+            requestCourseView.courseName.setError(message: errorMessage)
         case (true, _):
-            break
+            requestCourseView.courseCode.setError(message: errorMessage)
+            requestCourseView.courseName.setNormal()
         case (_, true):
-            break
+            requestCourseView.courseCode.setNormal()
+            requestCourseView.courseName.setError(message: errorMessage)
         default:
+            requestCourseView.courseCode.setNormal()
+            requestCourseView.courseName.setNormal()
+            
             requestCourseView.showSuccess {
                 self.dismiss(animated: true, completion: {})
             }
