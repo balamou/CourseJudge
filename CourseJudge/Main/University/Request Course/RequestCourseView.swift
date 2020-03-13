@@ -97,11 +97,13 @@ class RequestCourseView: UIView {
     init() {
         super.init(frame: .zero)
         
+        setupToHideKeyboardOnTapOnView()
+        
         addSubviewLayout(wrappedView)
         
         wrappedView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         wrappedView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        wrappedView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.3).isActive = true
+//        wrappedView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.3).isActive = true
         wrappedView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7).isActive = true
         
         wrappedView.addSubviewLayout(titleLabel)
@@ -109,20 +111,8 @@ class RequestCourseView: UIView {
         titleLabel.centerXAnchor.constraint(equalTo: wrappedView.centerXAnchor).isActive = true
         titleLabel.topAnchor.constraint(equalTo: wrappedView.topAnchor, constant: 20.0).isActive = true
         
-        wrappedView.addSubviewLayout(cancelButton)
-        
-        cancelButton.leadingAnchor.constraint(equalTo: wrappedView.leadingAnchor).isActive = true
-        cancelButton.widthAnchor.constraint(equalTo: wrappedView.widthAnchor, multiplier: 0.5).isActive = true
-        cancelButton.bottomAnchor.constraint(equalTo: wrappedView.bottomAnchor).isActive = true
-        
-        wrappedView.addSubviewLayout(requestButton)
-        
-        requestButton.trailingAnchor.constraint(equalTo: wrappedView.trailingAnchor).isActive = true
-        requestButton.widthAnchor.constraint(equalTo: wrappedView.widthAnchor, multiplier: 0.5).isActive = true
-        requestButton.bottomAnchor.constraint(equalTo: wrappedView.bottomAnchor).isActive = true
-        
         wrappedView.addSubviewLayout(courseCode)
-        
+               
         courseCode.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20.0).isActive = true
         courseCode.leadingAnchor.constraint(equalTo: wrappedView.leadingAnchor, constant: 10.0).isActive = true
         courseCode.trailingAnchor.constraint(equalTo: wrappedView.trailingAnchor, constant: -10.0).isActive = true
@@ -133,12 +123,32 @@ class RequestCourseView: UIView {
         courseName.leadingAnchor.constraint(equalTo: wrappedView.leadingAnchor, constant: 10.0).isActive = true
         courseName.trailingAnchor.constraint(equalTo: wrappedView.trailingAnchor, constant: -10.0).isActive = true
         
+        wrappedView.addSubviewLayout(cancelButton)
+        
+        cancelButton.leadingAnchor.constraint(equalTo: wrappedView.leadingAnchor).isActive = true
+        cancelButton.widthAnchor.constraint(equalTo: wrappedView.widthAnchor, multiplier: 0.5).isActive = true
+        cancelButton.topAnchor.constraint(equalTo: courseName.bottomAnchor, constant: 20.0).isActive = true
+        
+        wrappedView.addSubviewLayout(requestButton)
+        
+        requestButton.trailingAnchor.constraint(equalTo: wrappedView.trailingAnchor).isActive = true
+        requestButton.widthAnchor.constraint(equalTo: wrappedView.widthAnchor, multiplier: 0.5).isActive = true
+        requestButton.topAnchor.constraint(equalTo: courseName.bottomAnchor, constant: 20.0).isActive = true
+        
+        /// Layout guide to fix the height
+        let layoutGuide = UILayoutGuide()
+        addLayoutGuide(layoutGuide)
+        
+        layoutGuide.topAnchor.constraint(equalTo: wrappedView.topAnchor).isActive = true
+        layoutGuide.bottomAnchor.constraint(equalTo: requestButton.bottomAnchor).isActive = true
+        wrappedView.heightAnchor.constraint(equalTo: layoutGuide.heightAnchor).isActive = true
+        
         /// MARK: Success view
         addSubviewLayout(successView)
         
         successView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         successView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        successView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.3).isActive = true
+        successView.heightAnchor.constraint(equalTo: layoutGuide.heightAnchor).isActive = true
         successView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7).isActive = true
         
         successView.addSubviewLayout(successLabel)

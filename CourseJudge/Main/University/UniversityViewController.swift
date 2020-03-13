@@ -48,6 +48,7 @@ class UniversityViewController: UIViewController {
         universityView.universityTableView.register(NoResultsCell.self, forCellReuseIdentifier: NoResultsCell.identifier)
         
         universityView.universityTableView.setupToHideKeyboardOnTapOnView()
+        universityView.universityTableView.keyboardDismissMode = .onDrag
     }
     
     @objc func back() {
