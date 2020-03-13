@@ -131,7 +131,7 @@ extension UniversityViewController: UniversityHeaderCellDelegate {
         guard let coursePrefix = textField.text else { return }
         trendingLabel.isHidden = !coursePrefix.isEmpty
         
-        let results = fetcher.searchCourse(by: coursePrefix)
+        let results = coursePrefix.isEmpty ? fetcher.trendingCourses() : fetcher.searchCourse(by: coursePrefix)
         courses = results
         
         noResults = results.isEmpty
