@@ -70,5 +70,19 @@ extension Coordinator: UniversityViewControllerDelegate {
         
         mainNavigationVC.present(requestCourseVC, animated: true, completion: {})
     }
+    
+    func universityViewController(_ universityVC: UniversityViewController, selected course: Course) {
+        let courseVC = CourseViewController(course: course)
+        courseVC.delegate = self
+        
+        mainNavigationVC.pushViewController(courseVC, animated: true)
+    }
 }
 
+extension Coordinator: CourseViewControllerDelegate {
+    
+    func courseViewControllerBack() {
+        mainNavigationVC.popViewController(animated: true)
+    }
+    
+}

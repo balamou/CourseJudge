@@ -11,6 +11,7 @@ import UIKit
 protocol UniversityViewControllerDelegate: class {
     func universityViewControllerBack()
     func universityViewControllerRequestCourse()
+    func universityViewController(_ universityVC: UniversityViewController, selected course: Course)
 }
 
 class UniversityViewController: UIViewController {
@@ -57,6 +58,14 @@ class UniversityViewController: UIViewController {
 }
 
 extension UniversityViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.section == 1 else { return }
+        
+        let course = courses[indexPath.row]
+        
+        delegate?.universityViewController(self, selected: course)
+    }
     
 }
 
