@@ -32,4 +32,14 @@ extension UIView {
         leadingAnchor.constraint(equalTo: parent.leadingAnchor).isActive = true
         trailingAnchor.constraint(equalTo: parent.trailingAnchor).isActive = true
     }
+    
+    func setupToHideKeyboardOnTapOnView() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIView.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        endEditing(true)
+    }
 }

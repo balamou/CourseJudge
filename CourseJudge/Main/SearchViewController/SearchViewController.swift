@@ -46,7 +46,9 @@ class SearchViewController: UIViewController {
         searchView.searchResults.rowHeight = UniversityCell.rowHeight
         searchView.searchResults.delegate = self
         searchView.searchResults.dataSource = self
+        
         searchView.searchResults.register(UniversityCell.self, forCellReuseIdentifier: UniversityCell.identifier)
+        searchView.searchResults.setupToHideKeyboardOnTapOnView()
     }
     
     @objc func cancelButtonTapped() {

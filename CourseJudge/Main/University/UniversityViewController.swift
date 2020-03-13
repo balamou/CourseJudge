@@ -46,6 +46,8 @@ class UniversityViewController: UIViewController {
         universityView.universityTableView.register(UniversityHeaderCell.self, forCellReuseIdentifier: UniversityHeaderCell.identifier)
         universityView.universityTableView.register(UniversityCourseCell.self, forCellReuseIdentifier: UniversityCourseCell.identifier)
         universityView.universityTableView.register(NoResultsCell.self, forCellReuseIdentifier: NoResultsCell.identifier)
+        
+        universityView.universityTableView.setupToHideKeyboardOnTapOnView()
     }
     
     @objc func back() {
