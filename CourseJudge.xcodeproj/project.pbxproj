@@ -37,6 +37,8 @@
 		ED40FD39241B339A00E0B939 /* RequestCourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD38241B339A00E0B939 /* RequestCourseView.swift */; };
 		ED40FD3C241C0B2C00E0B939 /* CourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD3B241C0B2C00E0B939 /* CourseViewController.swift */; };
 		ED40FD3E241C0B3600E0B939 /* CourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD3D241C0B3600E0B939 /* CourseView.swift */; };
+		ED40FD41241C125A00E0B939 /* ReviewsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD40241C125A00E0B939 /* ReviewsFetcher.swift */; };
+		ED40FD43241C190B00E0B939 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD42241C190B00E0B939 /* Colors.swift */; };
 		ED9D9F4A2416C080004C05D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9D9F492416C080004C05D9 /* AppDelegate.swift */; };
 		ED9D9F4C2416C080004C05D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9D9F4B2416C080004C05D9 /* SceneDelegate.swift */; };
 		ED9D9F4E2416C080004C05D9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9D9F4D2416C080004C05D9 /* MainViewController.swift */; };
@@ -75,6 +77,8 @@
 		ED40FD38241B339A00E0B939 /* RequestCourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCourseView.swift; sourceTree = "<group>"; };
 		ED40FD3B241C0B2C00E0B939 /* CourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewController.swift; sourceTree = "<group>"; };
 		ED40FD3D241C0B3600E0B939 /* CourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseView.swift; sourceTree = "<group>"; };
+		ED40FD40241C125A00E0B939 /* ReviewsFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsFetcher.swift; sourceTree = "<group>"; };
+		ED40FD42241C190B00E0B939 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		ED9D9F462416C080004C05D9 /* CourseJudge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CourseJudge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED9D9F492416C080004C05D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED9D9F4B2416C080004C05D9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				ED40FD0D241749FC00E0B939 /* Images.swift */,
+				ED40FD42241C190B00E0B939 /* Colors.swift */,
 			);
 			path = Contants;
 			sourceTree = "<group>";
@@ -207,10 +212,19 @@
 		ED40FD3A241C0B0E00E0B939 /* Course */ = {
 			isa = PBXGroup;
 			children = (
+				ED40FD3F241C124E00E0B939 /* Fetcher */,
 				ED40FD3B241C0B2C00E0B939 /* CourseViewController.swift */,
 				ED40FD3D241C0B3600E0B939 /* CourseView.swift */,
 			);
 			path = Course;
+			sourceTree = "<group>";
+		};
+		ED40FD3F241C124E00E0B939 /* Fetcher */ = {
+			isa = PBXGroup;
+			children = (
+				ED40FD40241C125A00E0B939 /* ReviewsFetcher.swift */,
+			);
+			path = Fetcher;
 			sourceTree = "<group>";
 		};
 		ED9D9F3D2416C080004C05D9 = {
@@ -360,6 +374,7 @@
 				ED40FD1E2418A92F00E0B939 /* UIColor+extension.swift in Sources */,
 				ED40FD20241915D200E0B939 /* TransitionAnimator.swift in Sources */,
 				ED40FD292419F77300E0B939 /* UniversityViewController.swift in Sources */,
+				ED40FD41241C125A00E0B939 /* ReviewsFetcher.swift in Sources */,
 				ED40FD2D241A96B100E0B939 /* FadingAnimationDelegate.swift in Sources */,
 				ED40FD06241748CE00E0B939 /* UIColor+extensions.swift in Sources */,
 				ED40FD08241748CE00E0B939 /* String+extensions.swift in Sources */,
@@ -374,6 +389,7 @@
 				ED9D9F4C2416C080004C05D9 /* SceneDelegate.swift in Sources */,
 				ED40FD2F241A97A100E0B939 /* UINavigationController+extension.swift in Sources */,
 				ED40FD3E241C0B3600E0B939 /* CourseView.swift in Sources */,
+				ED40FD43241C190B00E0B939 /* Colors.swift in Sources */,
 				ED40FD34241AFBEE00E0B939 /* CoursesFetcher.swift in Sources */,
 				ED40FD132418258100E0B939 /* CustomTextField.swift in Sources */,
 				ED40FD1C2418A47C00E0B939 /* UniversityCell.swift in Sources */,

@@ -6,15 +6,22 @@
 //  Copyright © 2020 Michel Balamou. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol UniversityFetcher {
      func searchUniversity(by prefix: String) -> [University]
 }
 
+struct University {
+    let name: String // UOttawa, Carleton, Queens, Waterloo etc..
+    let logo: UIImage
+    let location: String
+    var color: UIColor = .random()
+}
+
 
 class UniversitiesSearchModule: UniversityFetcher {
-    private let universities: [University] = [ .init(name: "UOttawa", logo: Images.logo, location: "75 Laurier Ave E, Ottawa, ON K1N 6N5"),
+    private let universities: [University] = [ .init(name: "uOttawa", logo: Images.Logo.uottawa, location: "75 Laurier Ave E, Ottawa, ON K1N 6N5", color: Colors.Universities.uottawa),
                                                .init(name: "Carleton", logo: Images.logo, location: "1125 Colonel By Dr, Ottawa, ON K1S 5B6"),
                                                .init(name: "Algonquin College", logo: Images.logo, location: "1385 Woodroffe Ave, Nepean, ON K2G 1V8"),
                                                .init(name: "Waterloo", logo: Images.logo, location: "200 University Ave W, Waterloo, ON N2L 3G1"),

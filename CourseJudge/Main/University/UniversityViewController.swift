@@ -102,6 +102,7 @@ extension UniversityViewController: UITableViewDataSource {
             universityHeaderCell.universityNameLabel.text = university.name
             universityHeaderCell.universityLocationLabel.text = university.location
             universityHeaderCell.universityLogoImageView.image = university.logo
+            universityHeaderCell.universityLogoImageView.tintColor = university.color
             universityHeaderCell.delegate = self
             
             return universityHeaderCell

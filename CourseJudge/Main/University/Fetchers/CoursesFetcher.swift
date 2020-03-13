@@ -13,15 +13,15 @@ protocol CoursesFetcher {
     func trendingCourses() -> [Course]
 }
 
+enum Stars: Int {
+    case one, two, three, four, five
+}
+
+enum Difficulty {
+    case easy, medium, hard
+}
+
 struct Course {
-    enum Stars: Int {
-        case one, two, three, four, five
-    }
-    
-    enum Difficulty {
-        case easy, medium, hard
-    }
-    
     enum CourseCode: CustomStringConvertible {
         case courseCode(subject: String, number: String)
         
