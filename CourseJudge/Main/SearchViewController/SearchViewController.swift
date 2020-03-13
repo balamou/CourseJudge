@@ -91,7 +91,7 @@ extension SearchViewController: UITableViewDataSource {
         
         let uni = universities[indexPath.row]
         cell.universityNameLabel.text = uni.name
-        cell.locationLabel.text = uni.location
+        cell.locationLabel.text = uni.fullAddress
         cell.universityLogoImageView.image = uni.logo
         cell.universityLogoImageView.tintColor = uni.color
         
