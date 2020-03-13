@@ -39,6 +39,7 @@ class MainView: UIView {
     var searchField: MessageTextField = {
         let textField = MessageTextField()
         textField.header = "University name"
+        textField.textField.isUserInteractionEnabled = false
         
         return textField
     }()

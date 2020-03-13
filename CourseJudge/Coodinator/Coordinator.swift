@@ -64,6 +64,11 @@ extension Coordinator: UniversityViewControllerDelegate {
             self.mainNavigationVC.delegate = self.fadingAnimation
         }
     }
-    
+        
+    func universityViewControllerRequestCourse() {
+        let requestCourseVC = RequestCourseViewController()
+        
+        mainNavigationVC.present(requestCourseVC, animated: true, completion: {})
+    }
 }
 

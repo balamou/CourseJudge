@@ -111,8 +111,7 @@ class MessageTextField: UIView {
     }()
     
     let textField: CustomTextField = {
-        let textField = CustomTextField(margin: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
-        textField.isUserInteractionEnabled = false
+        let textField = CustomTextField(margin: UIEdgeInsets(top: 0, left: 0, bottom: 2, right: 0))
         
         return textField
     }()

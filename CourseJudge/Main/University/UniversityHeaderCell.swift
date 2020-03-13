@@ -199,10 +199,15 @@ class UniversityCourseCell: UITableViewCell {
 }
 
 
+protocol NoResultsCellDelegate: class {
+    func requestCourseTapped()
+}
+
 class NoResultsCell: UITableViewCell {
     static let identifier = "NoResultsCell"
     static let rowHeight: CGFloat = 130
     
+    weak var delegate: NoResultsCellDelegate?
     
     let topLabel: UILabel = {
         let label = UILabel()
@@ -236,6 +241,14 @@ class NoResultsCell: UITableViewCell {
         
         bottomLabel.topAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: 5.0).isActive = true
         bottomLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tappedRequestCourse))
+        bottomLabel.addGestureRecognizer(tap)
+        bottomLabel.isUserInteractionEnabled = true
+    }
+    
+    @objc func tappedRequestCourse() {
+        delegate?.requestCourseTapped()
     }
     
     required init?(coder: NSCoder) {

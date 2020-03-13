@@ -10,6 +10,7 @@ import UIKit
 
 protocol UniversityViewControllerDelegate: class {
     func universityViewControllerBack()
+    func universityViewControllerRequestCourse()
 }
 
 class UniversityViewController: UIViewController {
@@ -104,6 +105,8 @@ extension UniversityViewController: UITableViewDataSource {
         } else {
             let noresults = tableView.dequeueReusableCell(withIdentifier: NoResultsCell.identifier, for: indexPath) as! NoResultsCell
             
+            noresults.delegate = self
+            
             return noresults
         }
     }
@@ -125,3 +128,10 @@ extension UniversityViewController: UniversityHeaderCellDelegate {
     
 }
 
+extension UniversityViewController: NoResultsCellDelegate {
+    
+    func requestCourseTapped() {
+        delegate?.universityViewControllerRequestCourse()
+    }
+    
+}
