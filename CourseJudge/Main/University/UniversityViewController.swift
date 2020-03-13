@@ -12,22 +12,6 @@ protocol UniversityViewControllerDelegate: class {
     func universityViewControllerBack()
 }
 
-struct Course {
-    enum Stars: Int {
-        case one, two, three, four, five
-    }
-    
-    enum Difficulty {
-        case easy, medium, hard
-    }
-    
-    let courseName: String // User interface analysis, Computer Graphics, etc.
-    let courseCode: String // CSI 3140
-    let numberOfRatings: Int // 1053 ratings
-    let rating: Stars // stars out of five
-    let difficulty: Difficulty
-}
-
 class UniversityViewController: UIViewController {
     weak var delegate: UniversityViewControllerDelegate?
     private var universityView: UniversityView!
@@ -112,7 +96,7 @@ extension UniversityViewController: UITableViewDataSource {
             let coursesCell =  tableView.dequeueReusableCell(withIdentifier: UniversityCourseCell.identifier, for: indexPath) as! UniversityCourseCell
             
             let course = courses[indexPath.row]
-            coursesCell.courseNameLabel.text = course.courseCode
+            coursesCell.courseNameLabel.text = course.courseCode.description
             coursesCell.courseCodeLabel.text = course.courseName
             coursesCell.numberOfRatingsLabel.text = "\(course.numberOfRatings) ratings"
                       
