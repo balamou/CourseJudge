@@ -67,6 +67,33 @@ class RequestCourseView: UIView {
         return textField
     }()
     
+    /// MARK: Success view
+    
+    let successView: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 20.0
+        view.backgroundColor = .white
+        view.isHidden = true
+        
+        return view
+    }()
+    
+    let successImage: UIImageView = {
+        let imageView = UIImageView(image: Images.success)
+        imageView.tintColor = UIColor(hue: 0.6124527523246674, saturation: 0.8, brightness: 1, alpha: 0.7)
+        imageView.contentMode = .scaleAspectFit
+        
+        return imageView
+    }()
+    
+    let successLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Course Request Successful"
+        
+        return label
+    }()
+    
+    
     init() {
         super.init(frame: .zero)
         
@@ -105,6 +132,37 @@ class RequestCourseView: UIView {
         courseName.topAnchor.constraint(equalTo: courseCode.bottomAnchor, constant: 10.0).isActive = true
         courseName.leadingAnchor.constraint(equalTo: wrappedView.leadingAnchor, constant: 10.0).isActive = true
         courseName.trailingAnchor.constraint(equalTo: wrappedView.trailingAnchor, constant: -10.0).isActive = true
+        
+        /// MARK: Success view
+        addSubviewLayout(successView)
+        
+        successView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        successView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        successView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.3).isActive = true
+        successView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7).isActive = true
+        
+        successView.addSubviewLayout(successLabel)
+        
+        successLabel.centerXAnchor.constraint(equalTo: successView.centerXAnchor).isActive = true
+        successLabel.centerYAnchor.constraint(equalTo: successView.centerYAnchor, constant: 10.0).isActive = true
+        
+        successView.addSubviewLayout(successImage)
+        
+        successImage.bottomAnchor.constraint(equalTo: successLabel.topAnchor, constant: -10.0).isActive = true
+        successImage.centerXAnchor.constraint(equalTo: successView.centerXAnchor).isActive = true
+    }
+    
+    func showSuccess(completion: @escaping () -> Void) {
+        successView.isHidden = false
+        successView.alpha = 0.0
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.successView.alpha = 1.0
+        }, completion: { _ in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7, execute: {
+                completion()
+            })
+        })
     }
     
     required init?(coder: NSCoder) {

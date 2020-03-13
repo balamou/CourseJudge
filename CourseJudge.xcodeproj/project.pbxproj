@@ -254,8 +254,8 @@
 				ED40FD0F241815D000E0B939 /* Reusable views */,
 				ED40FCF52417435100E0B939 /* MainVC */,
 				ED40FD1624182D6800E0B939 /* SearchViewController */,
-				ED40FD242419F33000E0B939 /* Request University */,
 				ED40FD272419F75D00E0B939 /* University */,
+				ED40FD242419F33000E0B939 /* Request University */,
 			);
 			path = Main;
 			sourceTree = "<group>";

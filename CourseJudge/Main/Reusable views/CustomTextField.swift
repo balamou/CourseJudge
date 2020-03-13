@@ -112,6 +112,8 @@ class MessageTextField: UIView {
     
     let textField: CustomTextField = {
         let textField = CustomTextField(margin: UIEdgeInsets(top: 0, left: 0, bottom: 2, right: 0))
+        textField.autocorrectionType = .no
+        textField.autocapitalizationType = .none
         
         return textField
     }()

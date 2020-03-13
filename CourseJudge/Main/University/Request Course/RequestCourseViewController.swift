@@ -27,7 +27,21 @@ class RequestCourseViewController: UIViewController {
     }
     
     @objc func requestButtonTapped() {
+        let courseCode = requestCourseView.courseCode.textField.text!
+        let courseName = requestCourseView.courseName.textField.text!
         
+        switch (courseCode.isEmpty, courseName.isEmpty) {
+        case (true, true):
+            break
+        case (true, _):
+            break
+        case (_, true):
+            break
+        default:
+            requestCourseView.showSuccess {
+                self.dismiss(animated: true, completion: {})
+            }
+        }
     }
 }
 
