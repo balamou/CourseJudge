@@ -12,6 +12,7 @@ class Colors {
     
     struct Universities {
         static let uottawa = UIColor(red: 143.0/255.0, green: 0, blue: 26/255.0, alpha: 0.7)
+        static let carleton = UIColor.black.withAlphaComponent(0.8)
     }
     
 }
