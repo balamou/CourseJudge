@@ -39,6 +39,7 @@
 		ED40FD3E241C0B3600E0B939 /* CourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD3D241C0B3600E0B939 /* CourseView.swift */; };
 		ED40FD41241C125A00E0B939 /* ReviewsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD40241C125A00E0B939 /* ReviewsFetcher.swift */; };
 		ED40FD43241C190B00E0B939 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD42241C190B00E0B939 /* Colors.swift */; };
+		ED40FD45241C5BCD00E0B939 /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD44241C5BCD00E0B939 /* ReviewCell.swift */; };
 		ED9D9F4A2416C080004C05D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9D9F492416C080004C05D9 /* AppDelegate.swift */; };
 		ED9D9F4C2416C080004C05D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9D9F4B2416C080004C05D9 /* SceneDelegate.swift */; };
 		ED9D9F4E2416C080004C05D9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9D9F4D2416C080004C05D9 /* MainViewController.swift */; };
@@ -79,6 +80,7 @@
 		ED40FD3D241C0B3600E0B939 /* CourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseView.swift; sourceTree = "<group>"; };
 		ED40FD40241C125A00E0B939 /* ReviewsFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsFetcher.swift; sourceTree = "<group>"; };
 		ED40FD42241C190B00E0B939 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		ED40FD44241C5BCD00E0B939 /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
 		ED9D9F462416C080004C05D9 /* CourseJudge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CourseJudge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED9D9F492416C080004C05D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED9D9F4B2416C080004C05D9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				ED40FD3F241C124E00E0B939 /* Fetcher */,
 				ED40FD3B241C0B2C00E0B939 /* CourseViewController.swift */,
 				ED40FD3D241C0B3600E0B939 /* CourseView.swift */,
+				ED40FD44241C5BCD00E0B939 /* ReviewCell.swift */,
 			);
 			path = Course;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				ED40FD222419EA7D00E0B939 /* UniversityFetcher.swift in Sources */,
 				ED40FD04241748CE00E0B939 /* Optional+extensions.swift in Sources */,
 				ED40FD2B2419F7AB00E0B939 /* UniversityView.swift in Sources */,
+				ED40FD45241C5BCD00E0B939 /* ReviewCell.swift in Sources */,
 				ED40FD0E241749FC00E0B939 /* Images.swift in Sources */,
 				ED40FD1E2418A92F00E0B939 /* UIColor+extension.swift in Sources */,
 				ED40FD20241915D200E0B939 /* TransitionAnimator.swift in Sources */,

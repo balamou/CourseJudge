@@ -17,7 +17,7 @@ enum Stars: Int {
     case one, two, three, four, five
 }
 
-enum Difficulty {
+enum Difficulty: String {
     case easy, medium, hard
 }
 

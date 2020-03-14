@@ -17,6 +17,8 @@ class CourseViewController: UIViewController {
     private var courseView: CourseView!
     
     private let course: Course
+    private var reviews: [Review] = []
+    private let fetcher: ReviewsFetcher = ReviewsModule()
     
     init(course: Course) {
         self.course = course
@@ -35,13 +37,70 @@ class CourseViewController: UIViewController {
         
         courseView.backButton.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
         
-        courseView.courseNameLabel.text = course.courseName
-        courseView.courseCodeLabel.text = course.courseCode.description
-        courseView.overallRatingsLabel.text = "Rated \(course.rating.rawValue) out of 5"
+        
+        courseView.courseTableView.delegate = self
+        courseView.courseTableView.dataSource = self
+        courseView.courseTableView.register(CourseHeaderCell.self, forCellReuseIdentifier: CourseHeaderCell.identifier)
+        courseView.courseTableView.register(ReviewCell.self, forCellReuseIdentifier: ReviewCell.identifier)
+        
+        reviews = fetcher.fetchReviews()
     }
     
     @objc func backTapped() {
         delegate?.courseViewControllerBack()
+    }
+    
+}
+
+
+extension CourseViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.section {
+        case 0:
+            return CourseHeaderCell.rowHeight
+        case 1:
+            return ReviewCell.rowHeight
+        default:
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            return reviews.count
+        default:
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: CourseHeaderCell.identifier, for: indexPath) as! CourseHeaderCell
+            
+            cell.courseNameLabel.text = course.courseName
+            cell.courseCodeLabel.text = course.courseCode.description
+            cell.overallRatingsLabel.text = "Rated \(course.rating.rawValue) out of 5"
+            
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: ReviewCell.identifier, for: indexPath) as! ReviewCell
+            
+            let review = reviews[indexPath.row]
+            cell.ratingLabel.text = "\(review.rating.rawValue) out of 5"
+            cell.yearLabel.text = "Taken in: \(review.yearTaken)"
+            cell.professorLabel.text = "Professor: \(review.professorName)"
+            cell.difficulyLabel.text = "Difficulty: \(review.difficuly.rawValue)"
+            
+            return cell
+        }
     }
     
 }
