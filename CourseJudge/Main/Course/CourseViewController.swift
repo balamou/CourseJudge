@@ -87,7 +87,9 @@ extension CourseViewController: UITableViewDelegate, UITableViewDataSource {
             
             cell.courseNameLabel.text = course.courseName
             cell.courseCodeLabel.text = course.courseCode.description
-            cell.overallRatingsLabel.text = "Rated \(course.rating.rawValue) out of 5"
+            cell.overallRatingsStars.rating = course.rating
+            cell.overallRatingsLabel.text = "\(course.rating.rawValue) out of 5"
+            cell.numberOfRatingsLabel.text = "\(course.numberOfRatings) ratings"
             
             return cell
         } else {

@@ -14,7 +14,8 @@ class Images {
     static let back = UIImage(named: "back")!
     static let search = UIImage(named: "search")!
     static let success = UIImage(named: "success")!
- 
+    static let star = UIImage(named: "star")!
+    
     struct Logo {
         static let uottawa = UIImage(named: "uottawa_logo")!
         static let carleton = UIImage(named: "carleton")!

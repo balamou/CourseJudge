@@ -15,6 +15,7 @@ class CourseHeaderCell: UITableViewCell {
     let courseNameLabel: UILabel = {
         let label = UILabel()
         label.text = "Course Name"
+        label.font = UIFont(name: "Helvetica-Bold", size: 20.0) //UIFont.systemFont(ofSize: 18.0)
         
         return label
     }()
@@ -22,6 +23,7 @@ class CourseHeaderCell: UITableViewCell {
     let courseCodeLabel: UILabel = {
         let label = UILabel()
         label.text = "Course Code"
+        label.font = UIFont.systemFont(ofSize: 15.0)
         
         return label
     }()
@@ -29,13 +31,22 @@ class CourseHeaderCell: UITableViewCell {
     let numberOfRatingsLabel: UILabel = {
         let label = UILabel()
         label.text = "Number of ratings"
+        label.font = UIFont.systemFont(ofSize: 12.0)
         
         return label
     }()
     
+    let overallRatingsStars: StarsView = {
+        let stars = StarsView()
+        
+        return stars
+    }()
+    
     let overallRatingsLabel: UILabel = {
         let label = UILabel()
-        label.text = "Overall rating"
+        label.text = "4 out of 5"
+        label.textColor = UIColor.black.withAlphaComponent(0.8)
+        label.font = UIFont.systemFont(ofSize: 12.0)
         
         return label
     }()
@@ -44,24 +55,30 @@ class CourseHeaderCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        backgroundColor = .random()
+        backgroundColor = .white
         selectionStyle = .none
         
         addSubviewLayout(courseNameLabel)
-        courseNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10.0).isActive = true
-        courseNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10.0).isActive = true
+        courseNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 25.0).isActive = true
+        courseNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
         addSubviewLayout(courseCodeLabel)
-        courseCodeLabel.topAnchor.constraint(equalTo: courseNameLabel.bottomAnchor, constant: 10.0).isActive = true
-        courseCodeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10.0).isActive = true
+        courseCodeLabel.topAnchor.constraint(equalTo: courseNameLabel.bottomAnchor, constant: 5.0).isActive = true
+        courseCodeLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+            
+        addSubviewLayout(overallRatingsStars)
+        overallRatingsStars.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20.0).isActive = true
+        overallRatingsStars.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10.0).isActive = true
+        overallRatingsStars.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+        overallRatingsStars.widthAnchor.constraint(equalToConstant: 120.0).isActive = true
         
         addSubviewLayout(overallRatingsLabel)
-        overallRatingsLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10.0).isActive = true
-        overallRatingsLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10.0).isActive = true
+        overallRatingsLabel.centerYAnchor.constraint(equalTo: overallRatingsStars.centerYAnchor, constant: 1.0).isActive = true
+        overallRatingsLabel.leadingAnchor.constraint(equalTo: overallRatingsStars.trailingAnchor, constant: 5.0).isActive = true
         
         addSubviewLayout(numberOfRatingsLabel)
-        numberOfRatingsLabel.bottomAnchor.constraint(equalTo: overallRatingsLabel.topAnchor, constant: -10.0).isActive = true
-        numberOfRatingsLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10.0).isActive = true
+        numberOfRatingsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20.0).isActive = true
+        numberOfRatingsLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10.0).isActive = true
     }
     
     required init?(coder: NSCoder) {
@@ -73,7 +90,7 @@ class CourseHeaderCell: UITableViewCell {
 
 class ReviewCell: UITableViewCell {
     static let identifier = "ReviewCell"
-    static let rowHeight: CGFloat = 100.0
+    static let rowHeight: CGFloat = 150.0
     
     let ratingLabel: UILabel = {
         let label = UILabel()
@@ -123,7 +140,7 @@ class ReviewCell: UITableViewCell {
         
         addSubviewLayout(stackView)
         
-        stackView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        stackView.topAnchor.constraint(equalTo: topAnchor, constant: 10.0).isActive = true
         stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10.0).isActive = true
         stackView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5).isActive = true
         
