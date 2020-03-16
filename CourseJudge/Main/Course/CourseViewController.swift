@@ -100,6 +100,7 @@ extension CourseViewController: UITableViewDelegate, UITableViewDataSource {
             cell.yearLabel.text = "Taken in: \(review.yearTaken)"
             cell.professorLabel.text = "Professor: \(review.professorName)"
             cell.difficulyLabel.text = "Difficulty: \(review.difficuly.rawValue)"
+            cell.commentsLabel.text = "\(review.comment)"
             
             return cell
         }

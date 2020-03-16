@@ -24,6 +24,18 @@ class CourseView: UIView {
         return tableView
     }()
     
+    var rateButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Rate course", for: .normal)
+        button.layer.cornerRadius = 5
+        button.backgroundColor = UIColor.systemBlue.withAlphaComponent(0.7)
+        
+        button.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: 18.0)
+        button.contentEdgeInsets  = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
+        
+        return button
+    }()
+    
     init() {
         super.init(frame: .zero)
         backgroundColor = .white
@@ -37,6 +49,11 @@ class CourseView: UIView {
         addSubviewLayout(backButton)
         backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20.0).isActive = true
         backButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20.0).isActive = true
+        
+        addSubviewLayout(rateButton)
+        rateButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -30.0).isActive = true
+        rateButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20.0).isActive = true
+        rateButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20.0).isActive = true
     }
     
     required init?(coder: NSCoder) {

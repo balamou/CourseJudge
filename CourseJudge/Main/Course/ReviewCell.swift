@@ -10,7 +10,7 @@ import UIKit
 
 class CourseHeaderCell: UITableViewCell {
     static let identifier = "CourseHeaderCell"
-    static let rowHeight: CGFloat = 200.0
+    static let rowHeight: CGFloat = 150.0
     
     let courseNameLabel: UILabel = {
         let label = UILabel()
@@ -59,7 +59,7 @@ class CourseHeaderCell: UITableViewCell {
         selectionStyle = .none
         
         addSubviewLayout(courseNameLabel)
-        courseNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 25.0).isActive = true
+        courseNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 40.0).isActive = true
         courseNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
         addSubviewLayout(courseCodeLabel)
@@ -92,38 +92,52 @@ class ReviewCell: UITableViewCell {
     static let identifier = "ReviewCell"
     static let rowHeight: CGFloat = 150.0
     
-    let ratingLabel: UILabel = {
+    private let labelFont = UIFont.systemFont(ofSize: 14.0)
+    
+    let wrapperView: UIView = {
+        let view = UIView()
+        view.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9647058824, alpha: 1)
+        view.layer.cornerRadius = 20.0
+        
+        return view
+    }()
+    
+    lazy var ratingLabel: UILabel = {
         let label = UILabel()
         label.text = "Rating"
+        label.font = labelFont
         
         return label
     }()
     
-    let yearLabel: UILabel = {
+    lazy var yearLabel: UILabel = {
         let label = UILabel()
         label.text = "Year"
+        label.font = labelFont
         
         return label
     }()
     
-    let professorLabel: UILabel = {
+    lazy var professorLabel: UILabel = {
         let label = UILabel()
         label.text = "Professor"
+        label.font = labelFont
         
         return label
     }()
     
-    let difficulyLabel: UILabel = {
+    lazy var difficulyLabel: UILabel = {
         let label = UILabel()
         label.text = "Difficuly"
+        label.font = labelFont
         
         return label
     }()
     
-    let commentsLabel: UILabel = {
+    lazy var commentsLabel: UILabel = {
         let label = UILabel()
         label.text = "Comments"
-        
+        label.font = labelFont
         
         return label
     }()
@@ -132,22 +146,35 @@ class ReviewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        backgroundColor = .random()
+        backgroundColor = .white
         selectionStyle = .none
+        
+        addSubviewLayout(wrapperView)
+        
+        wrapperView.topAnchor.constraint(equalTo: topAnchor, constant: 10.0).isActive = true
+        wrapperView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10.0).isActive = true
+        wrapperView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10.0).isActive = true
+        wrapperView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10.0).isActive = true
         
         let stackView = UIStackView()
         stackView.axis = .vertical
         
-        addSubviewLayout(stackView)
+        wrapperView.addSubviewLayout(stackView)
         
-        stackView.topAnchor.constraint(equalTo: topAnchor, constant: 10.0).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10.0).isActive = true
-        stackView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5).isActive = true
+        stackView.topAnchor.constraint(equalTo: wrapperView.topAnchor, constant: 10.0).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: 10.0).isActive = true
+        stackView.widthAnchor.constraint(equalTo: wrapperView.widthAnchor, multiplier: 0.5).isActive = true
         
         stackView.addArrangedSubview(ratingLabel)
         stackView.addArrangedSubview(yearLabel)
         stackView.addArrangedSubview(professorLabel)
         stackView.addArrangedSubview(difficulyLabel)
+        
+        wrapperView.addSubviewLayout(commentsLabel)
+        commentsLabel.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 5).isActive = true
+        commentsLabel.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: 10).isActive = true
+        commentsLabel.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor, constant: -10).isActive = true
+        commentsLabel.bottomAnchor.constraint(equalTo: wrapperView.bottomAnchor, constant: -10).isActive = true
     }
     
     required init?(coder: NSCoder) {
