@@ -13,7 +13,11 @@ class StarsView: UIView {
     private var stars: [UIImageView] = []
     
     private let activeStarColor: UIColor = #colorLiteral(red: 0.9803921569, green: 0.6941176471, blue: 0.2509803922, alpha: 1)
-    private let inactiveStarColor: UIColor = #colorLiteral(red: 0.8941176471, green: 0.9098039216, blue: 0.9137254902, alpha: 1)
+    var inactiveStarColor: UIColor = #colorLiteral(red: 0.8941176471, green: 0.9098039216, blue: 0.9137254902, alpha: 1) {
+        didSet {
+            activateStars(rating: rating.rawValue)
+        }
+    }
     
     var rating: Stars = .one {
         didSet {
@@ -27,6 +31,7 @@ class StarsView: UIView {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.distribution = .fillProportionally
+        stackView.spacing = 5.0
         
         addSubviewLayout(stackView)
         stackView.topAnchor.constraint(equalTo: topAnchor).isActive = true

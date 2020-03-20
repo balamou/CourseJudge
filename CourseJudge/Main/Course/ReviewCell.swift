@@ -112,6 +112,7 @@ class ReviewCell: UITableViewCell {
     
     lazy var ratingStars: StarsView = {
         let starsView = StarsView()
+        starsView.inactiveStarColor = UIColor.black.withAlphaComponent(0.2)
         
         return starsView
     }()
@@ -162,11 +163,13 @@ class ReviewCell: UITableViewCell {
         wrapperView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10.0).isActive = true
         wrapperView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10.0).isActive = true
         
+        // STARS
         wrapperView.addSubviewLayout(ratingStars)
         ratingStars.topAnchor.constraint(equalTo: wrapperView.topAnchor, constant: 10.0).isActive = true
         ratingStars.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: 10.0).isActive = true
-        ratingStars.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+        ratingStars.heightAnchor.constraint(equalToConstant: 15.0).isActive = true
         
+        // STACK BELOW
         let stackView = UIStackView()
         stackView.axis = .vertical
         
@@ -174,13 +177,12 @@ class ReviewCell: UITableViewCell {
         
         stackView.topAnchor.constraint(equalTo: ratingStars.bottomAnchor, constant: 5.0).isActive = true
         stackView.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: 10.0).isActive = true
-        stackView.widthAnchor.constraint(equalTo: wrapperView.widthAnchor, multiplier: 0.5).isActive = true
         
         stackView.addArrangedSubview(yearLabel)
         stackView.addArrangedSubview(professorLabel)
         stackView.addArrangedSubview(difficulyLabel)
         
-        
+        // COMMENTS
         wrapperView.addSubviewLayout(commentsLabel)
         commentsLabel.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 5).isActive = true
         commentsLabel.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: 10).isActive = true
