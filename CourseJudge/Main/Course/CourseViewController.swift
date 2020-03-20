@@ -96,7 +96,8 @@ extension CourseViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: ReviewCell.identifier, for: indexPath) as! ReviewCell
             
             let review = reviews[indexPath.row]
-            cell.ratingLabel.text = "\(review.rating.rawValue) out of 5"
+//            cell.ratingLabel.text = "\(review.rating.rawValue) out of 5"
+            cell.ratingStars.rating = review.rating
             cell.yearLabel.text = "Taken in: \(review.yearTaken)"
             cell.professorLabel.text = "Professor: \(review.professorName)"
             cell.difficulyLabel.text = "Difficulty: \(review.difficuly.rawValue)"

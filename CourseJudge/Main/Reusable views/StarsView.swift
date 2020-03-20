@@ -38,6 +38,7 @@ class StarsView: UIView {
             let imageView = UIImageView(image: Images.star)
             imageView.tintColor = inactiveStarColor
             imageView.contentMode = .scaleAspectFit
+            imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor).isActive = true
             
             stars.append(imageView)
             

@@ -70,7 +70,7 @@ class CourseHeaderCell: UITableViewCell {
         overallRatingsStars.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20.0).isActive = true
         overallRatingsStars.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10.0).isActive = true
         overallRatingsStars.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
-        overallRatingsStars.widthAnchor.constraint(equalToConstant: 120.0).isActive = true
+//        overallRatingsStars.widthAnchor.constraint(equalToConstant: 120.0).isActive = true
         
         addSubviewLayout(overallRatingsLabel)
         overallRatingsLabel.centerYAnchor.constraint(equalTo: overallRatingsStars.centerYAnchor, constant: 1.0).isActive = true
@@ -108,6 +108,12 @@ class ReviewCell: UITableViewCell {
         label.font = labelFont
         
         return label
+    }()
+    
+    lazy var ratingStars: StarsView = {
+        let starsView = StarsView()
+        
+        return starsView
     }()
     
     lazy var yearLabel: UILabel = {
@@ -156,19 +162,24 @@ class ReviewCell: UITableViewCell {
         wrapperView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10.0).isActive = true
         wrapperView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10.0).isActive = true
         
+        wrapperView.addSubviewLayout(ratingStars)
+        ratingStars.topAnchor.constraint(equalTo: wrapperView.topAnchor, constant: 10.0).isActive = true
+        ratingStars.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: 10.0).isActive = true
+        ratingStars.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+        
         let stackView = UIStackView()
         stackView.axis = .vertical
         
         wrapperView.addSubviewLayout(stackView)
         
-        stackView.topAnchor.constraint(equalTo: wrapperView.topAnchor, constant: 10.0).isActive = true
+        stackView.topAnchor.constraint(equalTo: ratingStars.bottomAnchor, constant: 5.0).isActive = true
         stackView.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: 10.0).isActive = true
         stackView.widthAnchor.constraint(equalTo: wrapperView.widthAnchor, multiplier: 0.5).isActive = true
         
-        stackView.addArrangedSubview(ratingLabel)
         stackView.addArrangedSubview(yearLabel)
         stackView.addArrangedSubview(professorLabel)
         stackView.addArrangedSubview(difficulyLabel)
+        
         
         wrapperView.addSubviewLayout(commentsLabel)
         commentsLabel.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 5).isActive = true
