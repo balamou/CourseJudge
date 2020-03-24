@@ -14,7 +14,7 @@ protocol CoursesFetcher {
 }
 
 enum Stars: Int {
-    case one, two, three, four, five
+    case one = 1, two, three, four, five
 }
 
 enum Difficulty: String {

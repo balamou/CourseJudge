@@ -49,7 +49,6 @@ class RateView: UIView {
     
     let ratingView: RatingView = {
         let ratingView = RatingView()
-        ratingView.backgroundColor = .random()
         
         return ratingView
     }()
