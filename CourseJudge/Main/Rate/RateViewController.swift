@@ -19,6 +19,8 @@ class RateViewController: UIViewController {
     
     private let course: Course
     
+    private var selectedRating: Stars = .one
+    
     init(course: Course) {
         self.course = course
         super.init(nibName: nil, bundle: nil)
@@ -37,6 +39,11 @@ class RateViewController: UIViewController {
         rateView.courseCodeLabel.text = course.courseCode.description
         
         rateView.backButton.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
+        
+        rateView.ratingView.selectedRatingAction = { [weak self] rating in
+            guard let self = self else { return }
+            self.selectedRating = rating
+        }
     }
     
     @objc func backTapped() {

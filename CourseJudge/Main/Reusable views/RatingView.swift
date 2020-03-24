@@ -34,6 +34,8 @@ class RatingView: UIView {
     
     private var starImageViews: [UIImageView] = []
     
+    var selectedRatingAction: (Stars) -> Void = { _ in }
+    
     init() {
         super.init(frame: .zero)
         
@@ -83,6 +85,7 @@ class RatingView: UIView {
     
     @objc func starSelected(gestureRecognizer: UIGestureRecognizer) {
         if let selectedRating = gestureRecognizer.view?.tag, let rating = Stars(rawValue: selectedRating) {
+            selectedRatingAction(rating)
             colorActiveStars(rating: rating)
         }
     }
