@@ -135,16 +135,31 @@ extension UniversityViewController: UniversityHeaderCellDelegate {
     
     func textFieldTyping(textField: UITextField, trendingLabel: UILabel) {
         guard let coursePrefix = textField.text else { return }
-        trendingLabel.isHidden = !coursePrefix.isEmpty
         
         let results = coursePrefix.isEmpty ? fetcher.trendingCourses() : fetcher.searchCourse(by: coursePrefix)
         courses = results
+        trendingLabel.text = subtext(search: coursePrefix, resultsCount: courses.count)
         
         noResults = results.isEmpty
         
         universityView.universityTableView.reloadSections(IndexSet(integersIn: 1...2), with: .fade)
     }
-    
+ 
+    private func subtext(search: String, resultsCount: Int) -> String {
+        if search.isEmpty {
+            return "Trending courses"
+        }
+        
+        if courses.count == 0 {
+            return " "
+        }
+        
+        if courses.count == 1 {
+            return "1 result"
+        }
+        
+        return  "\(resultsCount) results"
+    }
 }
 
 extension UniversityViewController: NoResultsCellDelegate {
