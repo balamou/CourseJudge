@@ -26,8 +26,8 @@ class RateView: UIView {
     
     let topLabel: UILabel = {
         let label = UILabel()
-        label.text = "You are rating..."
-        label.font = UIFont.systemFont(ofSize: 15.0)
+        label.text = "You are rating"
+        label.font = UIFont.systemFont(ofSize: 20.0)
         
         return label
     }()
@@ -35,7 +35,7 @@ class RateView: UIView {
     let courseCodeLabel: UILabel = {
         let label = UILabel()
         label.text = "Course code"
-        label.font = UIFont.systemFont(ofSize: 20.0)
+        label.font = UIFont.systemFont(ofSize: 40.0)
         
         return label
     }()
@@ -61,7 +61,7 @@ class RateView: UIView {
         return label
     }()
     
-    let difficulty: UIView = {
+    let difficultyView: UIView = {
         let difficultyView = UIView()
         difficultyView.backgroundColor = .random()
         
@@ -70,7 +70,7 @@ class RateView: UIView {
     
     var rateButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Rate course", for: .normal)
+        button.setTitle("Submit review", for: .normal)
         button.layer.cornerRadius = 5
         button.backgroundColor = UIColor.systemBlue.withAlphaComponent(0.7)
         
@@ -93,18 +93,47 @@ class RateView: UIView {
         
         // TOP
         topWrapper.addSubviewLayout(topLabel)
-        topLabel.topAnchor.constraint(equalTo: topWrapper.topAnchor, constant: 40.0).isActive = true
+        topLabel.topAnchor.constraint(equalTo: topWrapper.topAnchor, constant: 80.0).isActive = true
         topLabel.centerXAnchor.constraint(equalTo: topWrapper.centerXAnchor).isActive = true
         
         topWrapper.addSubviewLayout(courseCodeLabel)
-        courseCodeLabel.topAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: 10.0).isActive = true
+        courseCodeLabel.topAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: 0).isActive = true
         courseCodeLabel.centerXAnchor.constraint(equalTo: topWrapper.centerXAnchor).isActive = true
         
         // BACK BUTTON
         addSubviewLayout(backButton)
         backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20.0).isActive = true
         backButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20.0).isActive = true
-              
+        
+        // RATING
+        addSubviewLayout(ratingLabel)
+        ratingLabel.topAnchor.constraint(equalTo: topWrapper.bottomAnchor, constant: 20.0).isActive = true
+        ratingLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        
+        addSubviewLayout(ratingView)
+        ratingView.topAnchor.constraint(equalTo: ratingLabel.bottomAnchor, constant: 10.0).isActive = true
+        ratingView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        
+        ratingView.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        ratingView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        // DIFFICULTY
+        addSubviewLayout(difficultyLabel)
+        difficultyLabel.topAnchor.constraint(equalTo: ratingView.bottomAnchor, constant: 20.0).isActive = true
+        difficultyLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        
+        addSubviewLayout(difficultyView)
+        difficultyView.topAnchor.constraint(equalTo: difficultyLabel.bottomAnchor, constant: 10.0).isActive = true
+        difficultyView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        
+        difficultyView.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        difficultyView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        // RATE BUTTON
+        addSubviewLayout(rateButton)
+        rateButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -30.0).isActive = true
+        rateButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20.0).isActive = true
+        rateButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20.0).isActive = true
     }
     
     required init?(coder: NSCoder) {
