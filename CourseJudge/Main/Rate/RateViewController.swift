@@ -18,8 +18,9 @@ class RateViewController: UIViewController {
     private var rateView: RateView!
     
     private let course: Course
-    
+
     private var selectedRating: Stars = .one
+    private var selectedDifficulty: Difficulty = .easy
     
     init(course: Course) {
         self.course = course
@@ -43,6 +44,12 @@ class RateViewController: UIViewController {
         rateView.ratingView.selectedRatingAction = { [weak self] rating in
             guard let self = self else { return }
             self.selectedRating = rating
+        }
+        
+        rateView.difficultyView.selectedDifficultyAction = { [weak self] difficulty in
+            guard let self = self else { return }
+            self.selectedDifficulty = difficulty
+            print(self.selectedDifficulty)
         }
     }
     

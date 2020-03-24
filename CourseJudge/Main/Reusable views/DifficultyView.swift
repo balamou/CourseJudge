@@ -10,6 +10,8 @@ import UIKit
 
 class DifficultyView: UIView {
     
+    var selectedDifficultyAction: (Difficulty) -> Void = { _ in }
+    
     let inactiveColor = UIColor.gray.withAlphaComponent(0.8)
     let activeColor = UIColor.systemBlue
     var selectedLevel = -1
@@ -82,8 +84,22 @@ class DifficultyView: UIView {
     }
     
     @objc func tappedOnDificulty(gestureRecognizer: UIGestureRecognizer) {
-        if let tag = gestureRecognizer.view?.tag {
+        if let tag = gestureRecognizer.view?.tag, let difficulty = convertToDifficulty(level: tag) {
             colorLevel(level: tag)
+            selectedDifficultyAction(difficulty)
+        }
+    }
+    
+    private func convertToDifficulty(level: Int) -> Difficulty? {
+        switch level {
+        case 0:
+            return .easy
+        case 1:
+            return .medium
+        case 2:
+            return .hard
+        default:
+            return nil
         }
     }
     
