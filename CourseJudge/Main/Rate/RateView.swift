@@ -62,7 +62,6 @@ class RateView: UIView {
     
     let difficultyView: DifficultyView = {
         let difficultyView = DifficultyView()
-        difficultyView.backgroundColor = .random()
         
         return difficultyView
     }()
