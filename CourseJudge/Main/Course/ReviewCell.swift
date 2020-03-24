@@ -121,6 +121,7 @@ class ReviewCell: UITableViewCell {
         let label = UILabel()
         label.text = "Year"
         label.font = labelFont
+        label.textColor = UIColor.black.withAlphaComponent(0.4)
         
         return label
     }()
@@ -145,6 +146,8 @@ class ReviewCell: UITableViewCell {
         let label = UILabel()
         label.text = "Comments"
         label.font = labelFont
+        label.numberOfLines = 0
+        label.textAlignment = .natural
         
         return label
     }()
@@ -152,6 +155,8 @@ class ReviewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        let margin: CGFloat = 15.0
         
         backgroundColor = .white
         selectionStyle = .none
@@ -165,8 +170,8 @@ class ReviewCell: UITableViewCell {
         
         // STARS
         wrapperView.addSubviewLayout(ratingStars)
-        ratingStars.topAnchor.constraint(equalTo: wrapperView.topAnchor, constant: 10.0).isActive = true
-        ratingStars.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: 10.0).isActive = true
+        ratingStars.topAnchor.constraint(equalTo: wrapperView.topAnchor, constant: margin).isActive = true
+        ratingStars.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: margin).isActive = true
         ratingStars.heightAnchor.constraint(equalToConstant: 15.0).isActive = true
         
         // STACK BELOW
@@ -176,18 +181,22 @@ class ReviewCell: UITableViewCell {
         wrapperView.addSubviewLayout(stackView)
         
         stackView.topAnchor.constraint(equalTo: ratingStars.bottomAnchor, constant: 5.0).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: 10.0).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: margin).isActive = true
         
-        stackView.addArrangedSubview(yearLabel)
         stackView.addArrangedSubview(professorLabel)
         stackView.addArrangedSubview(difficulyLabel)
+        
+        // YEAR LABEL
+        wrapperView.addSubviewLayout(yearLabel)
+        yearLabel.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor, constant: -margin).isActive = true
+        yearLabel.topAnchor.constraint(equalTo: wrapperView.topAnchor, constant: margin).isActive = true
         
         // COMMENTS
         wrapperView.addSubviewLayout(commentsLabel)
         commentsLabel.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 5).isActive = true
-        commentsLabel.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: 10).isActive = true
-        commentsLabel.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor, constant: -10).isActive = true
-        commentsLabel.bottomAnchor.constraint(equalTo: wrapperView.bottomAnchor, constant: -10).isActive = true
+        commentsLabel.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: margin).isActive = true
+        commentsLabel.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor, constant: -margin).isActive = true
+        commentsLabel.bottomAnchor.constraint(lessThanOrEqualTo: wrapperView.bottomAnchor, constant: -margin).isActive = true
     }
     
     required init?(coder: NSCoder) {

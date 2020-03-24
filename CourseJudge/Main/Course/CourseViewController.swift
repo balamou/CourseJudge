@@ -89,16 +89,15 @@ extension CourseViewController: UITableViewDelegate, UITableViewDataSource {
             cell.courseCodeLabel.text = course.courseCode.description
             cell.overallRatingsStars.rating = course.rating
             cell.overallRatingsLabel.text = "\(course.rating.rawValue) out of 5"
-            cell.numberOfRatingsLabel.text = "\(course.numberOfRatings) ratings"
+            cell.numberOfRatingsLabel.text = "\(reviews.count) reviews"
             
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: ReviewCell.identifier, for: indexPath) as! ReviewCell
             
             let review = reviews[indexPath.row]
-//            cell.ratingLabel.text = "\(review.rating.rawValue) out of 5"
             cell.ratingStars.rating = review.rating
-            cell.yearLabel.text = "Taken in: \(review.yearTaken)"
+            cell.yearLabel.text = "taken in \(review.yearTaken)"
             cell.professorLabel.text = "Professor: \(review.professorName)"
             cell.difficulyLabel.text = "Difficulty: \(review.difficuly.rawValue)"
             cell.commentsLabel.text = "\(review.comment)"
