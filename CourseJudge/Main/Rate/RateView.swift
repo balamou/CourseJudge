@@ -78,6 +78,21 @@ class RateView: UIView {
         return button
     }()
     
+    var yearTakenTextField: MessageTextField = {
+        let textField = MessageTextField()
+        textField.header = "Year taken"
+        textField.textField.keyboardType = .numberPad
+        
+        return textField
+    }()
+    
+    var professorTextField: MessageTextField = {
+        let textField = MessageTextField()
+        textField.header = "Professor"
+        
+        return textField
+    }()
+    
     init() {
         super.init(frame: .zero)
         
@@ -114,13 +129,29 @@ class RateView: UIView {
         
         // DIFFICULTY
         addSubviewLayout(difficultyLabel)
-        difficultyLabel.topAnchor.constraint(equalTo: ratingView.bottomAnchor, constant: 20.0).isActive = true
+        difficultyLabel.topAnchor.constraint(equalTo: ratingView.bottomAnchor, constant: 10.0).isActive = true
         difficultyLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
         addSubviewLayout(difficultyView)
         difficultyView.topAnchor.constraint(equalTo: difficultyLabel.bottomAnchor, constant: 10.0).isActive = true
         difficultyView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
+        // YEAR TAKEN
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
+        stackView.spacing = 20.0
+        stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.layoutMargins = UIEdgeInsets(top: 0, left: 20.0, bottom: 0, right: 20.0)
+        
+        addSubviewLayout(stackView)
+        stackView.topAnchor.constraint(equalTo: difficultyView.bottomAnchor, constant: 20.0).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        
+        stackView.addArrangedSubview(yearTakenTextField)
+        stackView.addArrangedSubview(professorTextField)
+
         // RATE BUTTON
         addSubviewLayout(rateButton)
         rateButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -30.0).isActive = true
