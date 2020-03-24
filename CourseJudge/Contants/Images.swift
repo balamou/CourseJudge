@@ -20,4 +20,10 @@ class Images {
         static let uottawa = UIImage(named: "uottawa_logo")!
         static let carleton = UIImage(named: "carleton")!
     }
+    
+    struct Difficulty {
+        static let easy = UIImage(named: "easy")!
+        static let moderate = UIImage(named: "moderate")!
+        static let difficult = UIImage(named: "difficult")!
+    }
 }
