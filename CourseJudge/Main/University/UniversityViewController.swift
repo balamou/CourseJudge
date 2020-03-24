@@ -112,7 +112,8 @@ extension UniversityViewController: UITableViewDataSource {
             let course = courses[indexPath.row]
             coursesCell.courseNameLabel.text = course.courseCode.description
             coursesCell.courseCodeLabel.text = course.courseName
-            coursesCell.numberOfRatingsLabel.text = "\(course.numberOfRatings) ratings"
+            coursesCell.numberOfRatingsLabel.text = "\(course.numberOfRatings) reviews"
+            coursesCell.starsView.rating = course.rating
                       
             return coursesCell
         } else {

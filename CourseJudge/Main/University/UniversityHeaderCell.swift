@@ -148,8 +148,10 @@ class UniversityCourseCell: UITableViewCell {
     
     var numberOfRatingsLabel: UILabel = {
         let label = UILabel()
-        label.text = "1,050 ratings"
-        label.font = UIFont.systemFont(ofSize: 13)
+        label.text = "1,050 reviews"
+        label.font = UIFont.systemFont(ofSize: 11)
+//        label.textColor = UIColor.black.withAlphaComponent(0.5)
+        label.isHidden = true
         
         return label
     }()
@@ -159,6 +161,13 @@ class UniversityCourseCell: UITableViewCell {
         label.text = "5 out of 5"
         
         return label
+    }()
+    
+    var starsView: StarsView = {
+        let starsView = StarsView()
+        starsView.inactiveStarColor = UIColor.white.withAlphaComponent(0.8)
+        
+        return starsView
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -187,10 +196,17 @@ class UniversityCourseCell: UITableViewCell {
         rateButton.centerYAnchor.constraint(equalTo: wrapperView.centerYAnchor).isActive = true
         rateButton.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor, constant: -10.0).isActive = true
         
+        // STARS RATING
+        wrapperView.addSubviewLayout(starsView)
+        starsView.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: 10.0).isActive = true
+        starsView.bottomAnchor.constraint(equalTo: wrapperView.bottomAnchor, constant: -10.0).isActive = true
+        starsView.heightAnchor.constraint(equalToConstant: 15.0).isActive = true
+        
+        // RATING LABEL
         wrapperView.addSubviewLayout(numberOfRatingsLabel)
         
-        numberOfRatingsLabel.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: 10.0).isActive = true
-        numberOfRatingsLabel.bottomAnchor.constraint(equalTo: wrapperView.bottomAnchor, constant: -10.0).isActive = true
+        numberOfRatingsLabel.leadingAnchor.constraint(equalTo: starsView.trailingAnchor, constant: 5.0).isActive = true
+        numberOfRatingsLabel.centerYAnchor.constraint(equalTo: starsView.centerYAnchor, constant: 1.0).isActive = true
     }
     
     required init?(coder: NSCoder) {
