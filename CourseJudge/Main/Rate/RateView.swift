@@ -10,6 +10,13 @@ import UIKit
 
 class RateView: UIView {
     
+    var backButton: UIButton = {
+           let button = UIButton()
+           button.setImage(Images.back, for: .normal)
+           
+           return button
+       }()
+    
     let topWrapper: UIView = {
         let view = UIView()
         view.backgroundColor = .random()
@@ -92,7 +99,12 @@ class RateView: UIView {
         topWrapper.addSubviewLayout(courseCodeLabel)
         courseCodeLabel.topAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: 10.0).isActive = true
         courseCodeLabel.centerXAnchor.constraint(equalTo: topWrapper.centerXAnchor).isActive = true
-        //
+        
+        // BACK BUTTON
+        addSubviewLayout(backButton)
+        backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20.0).isActive = true
+        backButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20.0).isActive = true
+              
     }
     
     required init?(coder: NSCoder) {

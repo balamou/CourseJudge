@@ -79,7 +79,8 @@ extension Coordinator: UniversityViewControllerDelegate {
     }
     
     func universityViewController(_ universityVC: UniversityViewController, rate course: Course) {
-        let rateVC = RateViewController()
+        let rateVC = RateViewController(course: course)
+        rateVC.delegate = self
         
         mainNavigationVC.pushViewController(rateVC, animated: true)
     }
@@ -88,6 +89,18 @@ extension Coordinator: UniversityViewControllerDelegate {
 extension Coordinator: CourseViewControllerDelegate {
     
     func courseViewControllerBack() {
+        mainNavigationVC.popViewController(animated: true)
+    }
+    
+}
+
+extension Coordinator: RateViewControllerDelegate {
+    
+    func rateViewControllerDoneRating() {
+        // TODO
+    }
+    
+    func rateViewControllerBack() {
         mainNavigationVC.popViewController(animated: true)
     }
     
