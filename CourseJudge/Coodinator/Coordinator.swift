@@ -77,6 +77,12 @@ extension Coordinator: UniversityViewControllerDelegate {
         
         mainNavigationVC.pushViewController(courseVC, animated: true)
     }
+    
+    func universityViewController(_ universityVC: UniversityViewController, rate course: Course) {
+        let rateVC = RateViewController()
+        
+        mainNavigationVC.pushViewController(rateVC, animated: true)
+    }
 }
 
 extension Coordinator: CourseViewControllerDelegate {

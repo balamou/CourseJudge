@@ -12,6 +12,7 @@ protocol UniversityViewControllerDelegate: class {
     func universityViewControllerBack()
     func universityViewControllerRequestCourse()
     func universityViewController(_ universityVC: UniversityViewController, selected course: Course)
+    func universityViewController(_ universityVC: UniversityViewController, rate course: Course)
 }
 
 class UniversityViewController: UIViewController {
@@ -110,6 +111,10 @@ extension UniversityViewController: UITableViewDataSource {
             let coursesCell =  tableView.dequeueReusableCell(withIdentifier: UniversityCourseCell.identifier, for: indexPath) as! UniversityCourseCell
             
             let course = courses[indexPath.row]
+            
+            coursesCell.row = indexPath.row
+            coursesCell.delegate = self
+            
             coursesCell.courseNameLabel.text = course.courseCode.description
             coursesCell.courseCodeLabel.text = course.courseName
             coursesCell.numberOfRatingsLabel.text = "\(course.numberOfRatings) reviews"
@@ -146,6 +151,14 @@ extension UniversityViewController: NoResultsCellDelegate {
     
     func requestCourseTapped() {
         delegate?.universityViewControllerRequestCourse()
+    }
+    
+}
+
+extension UniversityViewController: UniversityCourseCellDelegate {
+    
+    func tappedRateButton(row: Int) {
+        delegate?.universityViewController(self, rate: courses[row])
     }
     
 }

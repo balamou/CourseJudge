@@ -105,9 +105,15 @@ class UniversityHeaderCell: UITableViewCell {
     }
 }
 
+protocol UniversityCourseCellDelegate: class {
+    func tappedRateButton(row: Int)
+}
+
 class UniversityCourseCell: UITableViewCell {
     static let identifier = "UniversityCourseCell"
     static let rowHeight: CGFloat = 130
+    var row: Int = 0
+    weak var delegate: UniversityCourseCellDelegate?
     
     var wrapperView: UIView = {
         let view = UIView()
@@ -207,6 +213,13 @@ class UniversityCourseCell: UITableViewCell {
         
         numberOfRatingsLabel.leadingAnchor.constraint(equalTo: starsView.trailingAnchor, constant: 5.0).isActive = true
         numberOfRatingsLabel.centerYAnchor.constraint(equalTo: starsView.centerYAnchor, constant: 1.0).isActive = true
+        
+        // Rate button
+        rateButton.addTarget(self, action: #selector(tapppedRate), for: .touchUpInside)
+    }
+    
+    @objc func tapppedRate() {
+        delegate?.tappedRateButton(row: row)
     }
     
     required init?(coder: NSCoder) {
