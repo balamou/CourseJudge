@@ -93,6 +93,13 @@ class RateView: UIView {
         return textField
     }()
     
+    var commentsTextField: MulilineTextField = {
+       let textField = MulilineTextField()
+       textField.header = "Additional comments"
+       
+       return textField
+    }()
+    
     init() {
         super.init(frame: .zero)
         
@@ -157,6 +164,13 @@ class RateView: UIView {
         rateButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -30.0).isActive = true
         rateButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20.0).isActive = true
         rateButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20.0).isActive = true
+        
+        // COMMENTS
+        addSubviewLayout(commentsTextField)
+        commentsTextField.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 20.0).isActive = true
+        commentsTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20.0).isActive = true
+        commentsTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20.0).isActive = true
+        commentsTextField.bottomAnchor.constraint(equalTo: rateButton.topAnchor, constant: -50.0).isActive = true
     }
     
     required init?(coder: NSCoder) {
