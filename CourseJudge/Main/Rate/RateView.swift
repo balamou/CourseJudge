@@ -47,8 +47,8 @@ class RateView: UIView {
         return label
     }()
     
-    let ratingView: UIView = {
-        let ratingView = UIView()
+    let ratingView: RatingView = {
+        let ratingView = RatingView()
         ratingView.backgroundColor = .random()
         
         return ratingView
@@ -113,9 +113,6 @@ class RateView: UIView {
         addSubviewLayout(ratingView)
         ratingView.topAnchor.constraint(equalTo: ratingLabel.bottomAnchor, constant: 10.0).isActive = true
         ratingView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        
-        ratingView.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        ratingView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         // DIFFICULTY
         addSubviewLayout(difficultyLabel)
