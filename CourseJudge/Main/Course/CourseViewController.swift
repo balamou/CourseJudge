@@ -49,6 +49,10 @@ class CourseViewController: UIViewController {
         courseView.rateButton.addTarget(self, action: #selector(rateCourseButtonTapped), for: .touchUpInside)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        courseView.viewDidLayoutSubviews()
+    }
+    
     @objc func rateCourseButtonTapped() {
         delegate?.courseViewController(self, rate: course)
     }

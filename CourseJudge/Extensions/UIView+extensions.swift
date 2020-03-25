@@ -15,6 +15,7 @@ extension UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
     }
 
+    @discardableResult
     func setGradient(colors: [UIColor]) -> CAGradientLayer {
         let gradient = CAGradientLayer()
         
