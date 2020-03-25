@@ -152,6 +152,14 @@ class ReviewCell: UITableViewCell {
         return label
     }()
     
+    var moreActionsButton: UIButton = {
+        let button = UIButton()
+        button.setImage(Images.moreActionsSmall, for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.tintColor = UIColor.black.withAlphaComponent(0.4)
+        
+        return button
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -186,9 +194,15 @@ class ReviewCell: UITableViewCell {
         stackView.addArrangedSubview(professorLabel)
         stackView.addArrangedSubview(difficulyLabel)
         
-        // YEAR LABEL
+        // MORE ACTIONS BUTTON
+        wrapperView.addSubviewLayout(moreActionsButton)
         wrapperView.addSubviewLayout(yearLabel)
-        yearLabel.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor, constant: -margin).isActive = true
+             
+        moreActionsButton.centerYAnchor.constraint(equalTo: yearLabel.centerYAnchor).isActive = true
+        moreActionsButton.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor, constant: -margin - 5.0).isActive = true
+        
+        // YEAR LABEL
+        yearLabel.trailingAnchor.constraint(equalTo: moreActionsButton.leadingAnchor, constant: -10.0).isActive = true
         yearLabel.topAnchor.constraint(equalTo: wrapperView.topAnchor, constant: margin).isActive = true
         
         // COMMENTS

@@ -46,6 +46,8 @@
 		ED40FD4E242A93E800E0B939 /* DifficultyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD4D242A93E800E0B939 /* DifficultyView.swift */; };
 		ED40FD50242AA08000E0B939 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD4F242AA08000E0B939 /* RatingView.swift */; };
 		ED40FD53242AB9BE00E0B939 /* MultilineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD52242AB9BE00E0B939 /* MultilineTextField.swift */; };
+		ED40FD56242AFEEF00E0B939 /* MoreActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD55242AFEEF00E0B939 /* MoreActionsViewController.swift */; };
+		ED40FD58242AFF7300E0B939 /* MoreActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD57242AFF7300E0B939 /* MoreActionsView.swift */; };
 		ED9D9F4A2416C080004C05D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9D9F492416C080004C05D9 /* AppDelegate.swift */; };
 		ED9D9F4C2416C080004C05D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9D9F4B2416C080004C05D9 /* SceneDelegate.swift */; };
 		ED9D9F4E2416C080004C05D9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9D9F4D2416C080004C05D9 /* MainViewController.swift */; };
@@ -93,6 +95,8 @@
 		ED40FD4D242A93E800E0B939 /* DifficultyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyView.swift; sourceTree = "<group>"; };
 		ED40FD4F242AA08000E0B939 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		ED40FD52242AB9BE00E0B939 /* MultilineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextField.swift; sourceTree = "<group>"; };
+		ED40FD55242AFEEF00E0B939 /* MoreActionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreActionsViewController.swift; sourceTree = "<group>"; };
+		ED40FD57242AFF7300E0B939 /* MoreActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreActionsView.swift; sourceTree = "<group>"; };
 		ED9D9F462416C080004C05D9 /* CourseJudge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CourseJudge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED9D9F492416C080004C05D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED9D9F4B2416C080004C05D9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -230,6 +234,7 @@
 		ED40FD3A241C0B0E00E0B939 /* Course */ = {
 			isa = PBXGroup;
 			children = (
+				ED40FD54242AFEDC00E0B939 /* More Actions */,
 				ED40FD3F241C124E00E0B939 /* Fetcher */,
 				ED40FD3B241C0B2C00E0B939 /* CourseViewController.swift */,
 				ED40FD3D241C0B3600E0B939 /* CourseView.swift */,
@@ -253,6 +258,15 @@
 				ED40FD4B242A74B300E0B939 /* RateView.swift */,
 			);
 			path = Rate;
+			sourceTree = "<group>";
+		};
+		ED40FD54242AFEDC00E0B939 /* More Actions */ = {
+			isa = PBXGroup;
+			children = (
+				ED40FD55242AFEEF00E0B939 /* MoreActionsViewController.swift */,
+				ED40FD57242AFF7300E0B939 /* MoreActionsView.swift */,
+			);
+			path = "More Actions";
 			sourceTree = "<group>";
 		};
 		ED9D9F3D2416C080004C05D9 = {
@@ -392,6 +406,7 @@
 				ED40FD05241748CE00E0B939 /* UIView+extensions.swift in Sources */,
 				ED40FD53242AB9BE00E0B939 /* MultilineTextField.swift in Sources */,
 				ED40FD15241825AF00E0B939 /* StackView+extensions.swift in Sources */,
+				ED40FD56242AFEEF00E0B939 /* MoreActionsViewController.swift in Sources */,
 				ED40FD39241B339A00E0B939 /* RequestCourseView.swift in Sources */,
 				ED40FD4E242A93E800E0B939 /* DifficultyView.swift in Sources */,
 				ED40FD4C242A74B300E0B939 /* RateView.swift in Sources */,
@@ -401,6 +416,7 @@
 				ED9D9F4E2416C080004C05D9 /* MainViewController.swift in Sources */,
 				ED40FD222419EA7D00E0B939 /* UniversityFetcher.swift in Sources */,
 				ED40FD04241748CE00E0B939 /* Optional+extensions.swift in Sources */,
+				ED40FD58242AFF7300E0B939 /* MoreActionsView.swift in Sources */,
 				ED40FD2B2419F7AB00E0B939 /* UniversityView.swift in Sources */,
 				ED40FD45241C5BCD00E0B939 /* ReviewCell.swift in Sources */,
 				ED40FD0E241749FC00E0B939 /* Images.swift in Sources */,
