@@ -71,7 +71,8 @@ extension CourseViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             return CourseHeaderCell.rowHeight
         case 1:
-            return ReviewCell.rowHeight
+            let review = reviews[indexPath.row]
+            return ReviewCell.getEstimatedRowHeight(review: review.comment, totalScreenWidth: view.frame.width)
         default:
             return 0
         }

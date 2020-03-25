@@ -90,7 +90,9 @@ class CourseHeaderCell: UITableViewCell {
 
 class ReviewCell: UITableViewCell {
     static let identifier = "ReviewCell"
-    static let rowHeight: CGFloat = 150.0
+    static let minimumRowHeight: CGFloat = 100.0
+    /// negative value for no limit
+    static let maximumReviewCharacters = -1
     
     private let labelFont = UIFont.systemFont(ofSize: 14.0)
     
@@ -217,5 +219,26 @@ class ReviewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    static func getEstimatedRowHeight(review: String, totalScreenWidth: CGFloat) -> CGFloat {
+        guard !review.isEmpty else {
+            return minimumRowHeight
+        }
+        
+        let review = maximumReviewCharacters < 0 ? review : review.truncate(maximumReviewCharacters)
+        
+        let labelMargins: CGFloat = 2 * (10 + 20)
+        let approximateWidthOfDescription: CGFloat = totalScreenWidth - labelMargins
+        let approximateHeightOfDescription: CGFloat = 1000.0 // arbitrary large value
+        let attributes = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: UIFont.systemFontSize)]
+        
+        let size = CGSize(width: approximateWidthOfDescription, height: approximateHeightOfDescription)
+        let estimatedFrame = NSString(string: review).boundingRect(with: size,
+                                                                   options: .usesLineFragmentOrigin,
+                                                                   attributes: attributes,
+                                                                   context: nil)
+        
+        return minimumRowHeight + estimatedFrame.height + 10
+    }
 }
 

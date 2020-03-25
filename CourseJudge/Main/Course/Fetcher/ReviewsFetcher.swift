@@ -21,8 +21,10 @@ protocol ReviewsFetcher {
 }
 
 class ReviewsModule: ReviewsFetcher {
-    private let reviews: [Review] = [.init(rating: .four, yearTaken: 2017, professorName: "Jochen Lang", difficuly: .medium, comment: "Very good class"),
-                                     .init(rating: .one, yearTaken: 2019, professorName: "Thomas Tran", difficuly: .hard, comment: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In elementum sem sit amet mollis efficitur. Praesent blandit nisi a odio pharetra iaculis. Donec augue justo, ullamcorper ac purus et, porttitor tempor ligula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam eleifend, nunc vitae ullamcorper bibendum, enim justo aliquam justo, id molestie risus massa sed diam. Donec ac mollis nulla, non tristique tellus. Morbi tellus sem, rhoncus sed nunc vel, interdum viverra lectus. Vivamus eu tristique mi, a vestibulum odio. Mauris dolor metus, vestibulum vitae sollicitudin sed, finibus nec elit. Integer mattis facilisis mauris, eu semper nibh dignissim mollis")]
+    private let reviews: [Review] = [.init(rating: .four, yearTaken: 2017, professorName: "Jochen Lang", difficuly: .medium, comment: "I would take take any other Math course with him any time"),
+                                     .init(rating: .one, yearTaken: 2019, professorName: "Thomas Tran", difficuly: .hard, comment: "One of the best profs I've had! This professor wants all his students to succeed without a doubt. The midterms are very easy because he gives us some past midterms to practice with and he structures his midterms the same way every year, so you know exactly what to expect going into midterms. As long as you work, you'll be more than fine."),
+                                     .init(rating: .five, yearTaken: 2016, professorName: "John Houseman", difficuly: .easy, comment: "This is the only prof that I have had that gives detailed examples of the course content. He is literally the textbook(a simplified one) Don't skip classes. Homework can be a lot but it's perfect practice for midterm and finals(guaranteed). Would have gotten an A+ but I am fund of tiny mistakes and laziness. I highly recommend him. Perfect professor, you can't get less than an A+ in anything he teaches unless you're just unwilling to do anything."),
+                                     .init(rating: .four, yearTaken: 2018, professorName: "Jochen Lang", difficuly: .medium, comment: "I would take take any other Math course with him any time")]
     
     func fetchReviews() -> [Review] {
         return reviews
