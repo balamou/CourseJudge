@@ -10,6 +10,7 @@ import UIKit
 
 protocol CourseViewControllerDelegate: class {
     func courseViewControllerBack()
+    func courseViewController(_ courseViewController: CourseViewController, rate course: Course)
 }
 
 class CourseViewController: UIViewController {
@@ -44,6 +45,12 @@ class CourseViewController: UIViewController {
         courseView.courseTableView.register(ReviewCell.self, forCellReuseIdentifier: ReviewCell.identifier)
         
         reviews = fetcher.fetchReviews()
+        
+        courseView.rateButton.addTarget(self, action: #selector(rateCourseButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func rateCourseButtonTapped() {
+        delegate?.courseViewController(self, rate: course)
     }
     
     @objc func backTapped() {

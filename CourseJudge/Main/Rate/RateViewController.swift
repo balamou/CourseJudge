@@ -51,6 +51,8 @@ class RateViewController: UIViewController {
             self.selectedDifficulty = difficulty
             print(self.selectedDifficulty)
         }
+        
+        view.setupToHideKeyboardOnTapOnView()
     }
     
     @objc func backTapped() {

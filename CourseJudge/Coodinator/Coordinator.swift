@@ -92,6 +92,12 @@ extension Coordinator: CourseViewControllerDelegate {
         mainNavigationVC.popViewController(animated: true)
     }
     
+    func courseViewController(_ courseViewController: CourseViewController, rate course: Course) {
+        let rateVC = RateViewController(course: course)
+        rateVC.delegate = self
+        
+        mainNavigationVC.pushViewController(rateVC, animated: true)
+    }
 }
 
 extension Coordinator: RateViewControllerDelegate {
