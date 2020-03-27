@@ -59,7 +59,6 @@ class UniversityHeaderCell: UITableViewCell {
         let label = UILabel()
         label.text = "Trending courses"
         label.font = UIFont(name: "Helvetica", size: 13.0)
-//        label.textColor = .gray
         
         return label
     }()
@@ -117,8 +116,13 @@ class UniversityCourseCell: UITableViewCell {
     
     var wrapperView: UIView = {
         let view = UIView()
-        view.backgroundColor = .random()
+        view.backgroundColor = .white
         view.layer.cornerRadius = 15.0
+
+        view.layer.shadowColor = UIColor.gray.cgColor
+        view.layer.shadowOpacity = 0.25
+        view.layer.shadowOffset = .zero
+        view.layer.shadowRadius = 5
         
         return view
     }()
@@ -156,8 +160,8 @@ class UniversityCourseCell: UITableViewCell {
         let label = UILabel()
         label.text = "1,050 reviews"
         label.font = UIFont.systemFont(ofSize: 11)
-//        label.textColor = UIColor.black.withAlphaComponent(0.5)
         label.isHidden = true
+        
         
         return label
     }()
@@ -171,7 +175,6 @@ class UniversityCourseCell: UITableViewCell {
     
     var starsView: StarsView = {
         let starsView = StarsView()
-        starsView.inactiveStarColor = UIColor.white.withAlphaComponent(0.8)
         
         return starsView
     }()
