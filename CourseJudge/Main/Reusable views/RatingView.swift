@@ -12,7 +12,7 @@ class RatingView: UIView {
     
     let ratingLevels = 5
     let starHeight: CGFloat = 40
-    var currentRating: Stars = .one {
+    var currentRating: Stars? = nil {
         didSet {
             colorActiveStars(rating: currentRating)
         }
@@ -34,7 +34,7 @@ class RatingView: UIView {
     
     private var starImageViews: [UIImageView] = []
     
-    var selectedRatingAction: (Stars) -> Void = { _ in }
+    var selectedRatingAction: (Stars?) -> Void = { _ in }
     
     init() {
         super.init(frame: .zero)
@@ -90,9 +90,10 @@ class RatingView: UIView {
         }
     }
     
-    private func colorActiveStars(rating: Stars) {
+    private func colorActiveStars(rating: Stars?) {
         for i in 1...ratingLevels {
-            starImageViews[i - 1].tintColor = i <= rating.rawValue ? activeStarColor : inactiveStarColor
+            let ratingTreshold = rating == nil ? -1 : rating!.rawValue
+            starImageViews[i - 1].tintColor = i <= ratingTreshold ? activeStarColor : inactiveStarColor
         }
     }
     

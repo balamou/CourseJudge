@@ -19,7 +19,7 @@ class RateViewController: UIViewController {
     
     private let course: Course
 
-    private var selectedRating: Stars = .one
+    private var selectedRating: Stars? = nil
     private var selectedDifficulty: Difficulty = .easy
     
     init(course: Course) {
@@ -53,10 +53,20 @@ class RateViewController: UIViewController {
         }
         
         view.setupToHideKeyboardOnTapOnView()
+        
+        let doubleTap = UITapGestureRecognizer(target: self, action: #selector(autoFillFields))
+        doubleTap.numberOfTapsRequired = 2
+        view.addGestureRecognizer(doubleTap)
     }
     
     @objc func backTapped() {
         delegate?.rateViewControllerBack()
     }
     
+    
+    @objc func autoFillFields() {
+        rateView.yearTakenTextField.text = "2020"
+        rateView.professorTextField.text = "Miguel Garzon"
+        rateView.commentsTextField.text = "Amazing class! I would recomment it 10/10."
+    }
 }
