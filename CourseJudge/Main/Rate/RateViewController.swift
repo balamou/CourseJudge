@@ -59,10 +59,25 @@ class RateViewController: UIViewController {
         view.addGestureRecognizer(doubleTap)
         
         rateView.rateButton.addTarget(self, action: #selector(submitReview), for: .touchUpInside)
+        
+        rateView.submittedView.doneButton.addTarget(self, action: #selector(doneRating), for: .touchUpInside)
+    }
+    
+    @objc func doneRating() {
+        UIView.animate(withDuration: 0.20, animations: {
+            self.rateView.submittedView.alpha = 0.0
+        }, completion: { _ in
+            self.delegate?.rateViewControllerBack()
+        })
     }
     
     @objc func submitReview() {
         rateView.submittedView.isHidden = false
+        rateView.submittedView.alpha = 0.0
+        
+        UIView.animate(withDuration: 0.20) {
+            self.rateView.submittedView.alpha = 1.0
+        }
     }
     
     @objc func backTapped() {
