@@ -20,6 +20,8 @@ class MoreActionsView: UIView {
     let reportButton: UIButton = {
         let button = UIButton()
         button.setTitle("Report review", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.contentEdgeInsets  = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
         
         return button
     }()
@@ -47,14 +49,14 @@ class MoreActionsView: UIView {
         wrapperView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         
         wrapperView.addSubviewLayout(cancelButton)
-        cancelButton.bottomAnchor.constraint(equalTo: wrapperView.bottomAnchor, constant: 20.0).isActive = true
+        cancelButton.bottomAnchor.constraint(equalTo: wrapperView.bottomAnchor, constant: -20.0).isActive = true
         cancelButton.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: 20.0).isActive = true
-        cancelButton.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor, constant: 20.0).isActive = true
+        cancelButton.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor, constant: -20.0).isActive = true
         
         wrapperView.addSubviewLayout(reportButton)
-        reportButton.bottomAnchor.constraint(equalTo: cancelButton.topAnchor, constant: 10.0).isActive = true
+        reportButton.bottomAnchor.constraint(equalTo: cancelButton.topAnchor, constant: -10.0).isActive = true
         reportButton.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: 20.0).isActive = true
-        reportButton.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor, constant: 20.0).isActive = true
+        reportButton.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor, constant: -20.0).isActive = true
         
         wrapperView.topAnchor.constraint(equalTo: reportButton.topAnchor, constant: -20.0).isActive = true
     }

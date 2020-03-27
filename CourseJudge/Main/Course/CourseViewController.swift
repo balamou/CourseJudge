@@ -113,9 +113,21 @@ extension CourseViewController: UITableViewDelegate, UITableViewDataSource {
             cell.professorLabel.text = "Professor: \(review.professorName)"
             cell.difficulyLabel.text = "Difficulty: \(review.difficuly.rawValue)"
             cell.commentsLabel.text = "\(review.comment)"
+            cell.row = indexPath.row
+            cell.delegate = self
             
             return cell
         }
+    }
+    
+}
+
+extension CourseViewController: ReviewCellDelegate {
+    
+    func moreActionsTapped(row: Int) {
+        let moreActionsVC = MoreActionsViewController()
+        
+        present(moreActionsVC, animated: false, completion: nil)
     }
     
 }

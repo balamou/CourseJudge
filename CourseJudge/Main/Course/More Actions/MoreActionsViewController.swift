@@ -21,10 +21,12 @@ class MoreActionsViewController: UIViewController {
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(cancelTapped))
         view.addGestureRecognizer(tap)
+        
+        moreActionsView.cancelButton.addTarget(self, action: #selector(cancelTapped), for: .touchUpInside)
     }
     
     @objc func cancelTapped() {
-        // TODO: Hide
+        dismiss(animated: false, completion: nil)
     }
 }
 

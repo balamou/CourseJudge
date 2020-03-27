@@ -88,11 +88,17 @@ class CourseHeaderCell: UITableViewCell {
 }
 
 
+protocol ReviewCellDelegate: class {
+    func moreActionsTapped(row: Int)
+}
+
 class ReviewCell: UITableViewCell {
     static let identifier = "ReviewCell"
     static let minimumRowHeight: CGFloat = 100.0
     /// negative value for no limit
     static let maximumReviewCharacters = -1
+    var row = -1
+    weak var delegate: ReviewCellDelegate?
     
     private let labelFont = UIFont.systemFont(ofSize: 14.0)
     
@@ -213,6 +219,12 @@ class ReviewCell: UITableViewCell {
         commentsLabel.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: margin).isActive = true
         commentsLabel.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor, constant: -margin).isActive = true
         commentsLabel.bottomAnchor.constraint(lessThanOrEqualTo: wrapperView.bottomAnchor, constant: -margin).isActive = true
+        
+        moreActionsButton.addTarget(self, action: #selector(moreActionsTapped), for: .touchUpInside)
+    }
+    
+    @objc func moreActionsTapped() {
+        delegate?.moreActionsTapped(row: row)
     }
     
     required init?(coder: NSCoder) {
