@@ -48,6 +48,7 @@
 		ED40FD53242AB9BE00E0B939 /* MultilineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD52242AB9BE00E0B939 /* MultilineTextField.swift */; };
 		ED40FD56242AFEEF00E0B939 /* MoreActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD55242AFEEF00E0B939 /* MoreActionsViewController.swift */; };
 		ED40FD58242AFF7300E0B939 /* MoreActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD57242AFF7300E0B939 /* MoreActionsView.swift */; };
+		ED40FD5B242DB8B300E0B939 /* SubmittedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40FD5A242DB8B300E0B939 /* SubmittedView.swift */; };
 		ED9D9F4A2416C080004C05D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9D9F492416C080004C05D9 /* AppDelegate.swift */; };
 		ED9D9F4C2416C080004C05D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9D9F4B2416C080004C05D9 /* SceneDelegate.swift */; };
 		ED9D9F4E2416C080004C05D9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9D9F4D2416C080004C05D9 /* MainViewController.swift */; };
@@ -97,6 +98,7 @@
 		ED40FD52242AB9BE00E0B939 /* MultilineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextField.swift; sourceTree = "<group>"; };
 		ED40FD55242AFEEF00E0B939 /* MoreActionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreActionsViewController.swift; sourceTree = "<group>"; };
 		ED40FD57242AFF7300E0B939 /* MoreActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreActionsView.swift; sourceTree = "<group>"; };
+		ED40FD5A242DB8B300E0B939 /* SubmittedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmittedView.swift; sourceTree = "<group>"; };
 		ED9D9F462416C080004C05D9 /* CourseJudge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CourseJudge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED9D9F492416C080004C05D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED9D9F4B2416C080004C05D9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 		ED40FD48242A743800E0B939 /* Rate */ = {
 			isa = PBXGroup;
 			children = (
+				ED40FD59242DAD9E00E0B939 /* Submitting */,
 				ED40FD49242A744B00E0B939 /* RateViewController.swift */,
 				ED40FD4B242A74B300E0B939 /* RateView.swift */,
 			);
@@ -267,6 +270,14 @@
 				ED40FD57242AFF7300E0B939 /* MoreActionsView.swift */,
 			);
 			path = "More Actions";
+			sourceTree = "<group>";
+		};
+		ED40FD59242DAD9E00E0B939 /* Submitting */ = {
+			isa = PBXGroup;
+			children = (
+				ED40FD5A242DB8B300E0B939 /* SubmittedView.swift */,
+			);
+			path = Submitting;
 			sourceTree = "<group>";
 		};
 		ED9D9F3D2416C080004C05D9 = {
@@ -434,6 +445,7 @@
 				ED40FD50242AA08000E0B939 /* RatingView.swift in Sources */,
 				ED40FD09241748CE00E0B939 /* Array+extensions.swift in Sources */,
 				ED40FD11241815F700E0B939 /* ProportionalStackView.swift in Sources */,
+				ED40FD5B242DB8B300E0B939 /* SubmittedView.swift in Sources */,
 				ED40FD262419F36100E0B939 /* RequestUniversityViewController.swift in Sources */,
 				ED40FCFA241743DD00E0B939 /* Coordinator.swift in Sources */,
 				ED9D9F4A2416C080004C05D9 /* AppDelegate.swift in Sources */,

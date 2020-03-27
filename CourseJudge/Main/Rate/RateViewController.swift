@@ -57,12 +57,17 @@ class RateViewController: UIViewController {
         let doubleTap = UITapGestureRecognizer(target: self, action: #selector(autoFillFields))
         doubleTap.numberOfTapsRequired = 2
         view.addGestureRecognizer(doubleTap)
+        
+        rateView.rateButton.addTarget(self, action: #selector(submitReview), for: .touchUpInside)
+    }
+    
+    @objc func submitReview() {
+        rateView.submittedView.isHidden = false
     }
     
     @objc func backTapped() {
         delegate?.rateViewControllerBack()
     }
-    
     
     @objc func autoFillFields() {
         rateView.yearTakenTextField.text = "2020"

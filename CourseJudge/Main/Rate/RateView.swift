@@ -100,6 +100,13 @@ class RateView: UIView {
        return textField
     }()
     
+    var submittedView: SubmittedView = {
+        let view = SubmittedView()
+        view.isHidden = true
+        
+        return view
+    }()
+    
     init() {
         super.init(frame: .zero)
         
@@ -171,6 +178,13 @@ class RateView: UIView {
         commentsTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20.0).isActive = true
         commentsTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20.0).isActive = true
         commentsTextField.bottomAnchor.constraint(equalTo: rateButton.topAnchor, constant: -50.0).isActive = true
+        
+        // SUBMITTED
+        addSubviewLayout(submittedView)
+        submittedView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        submittedView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        submittedView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        submittedView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
     
     required init?(coder: NSCoder) {
