@@ -10,10 +10,13 @@ import UIKit
 
 class RequestUniversityViewController: UIViewController {
     
+    private var requestUniView: RequestUniversityView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.random()
+        requestUniView = RequestUniversityView()
+        view = requestUniView
     }
     
 }
