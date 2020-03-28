@@ -62,7 +62,9 @@ class RateViewController: UIViewController {
     }
     
     func doneRating() {
-        UIView.animate(withDuration: 0.30, delay: 1.0, animations: {
+        let amountOfTimeDisplayedBeforeLeaving = 0.8
+        
+        UIView.animate(withDuration: 0.30, delay: amountOfTimeDisplayedBeforeLeaving, animations: {
             self.rateView.submittedView.alpha = 0.0
         }, completion: { _ in
             self.delegate?.rateViewControllerBack()
