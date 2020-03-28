@@ -106,12 +106,16 @@ extension CourseViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: ReviewCell.identifier, for: indexPath) as! ReviewCell
-            
             let review = reviews[indexPath.row]
+            
+            let attributedText = NSMutableAttributedString(string: "prof. ")
+            attributedText.append(NSAttributedString(string: review.professorName, attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16)]))
+            
             cell.ratingStars.rating = review.rating
             cell.yearLabel.text = "taken in \(review.yearTaken)"
-            cell.professorLabel.text = "Professor: \(review.professorName)"
-            cell.difficulyLabel.text = "Difficulty: \(review.difficuly.rawValue)"
+//            cell.professorLabel.text = "Professor: \(review.professorName)"
+            cell.professorLabel.attributedText = attributedText
+            cell.difficulyLabel.text = "• \(review.difficuly.rawValue)"
             cell.commentsLabel.text = "\(review.comment)"
             cell.row = indexPath.row
             cell.delegate = self

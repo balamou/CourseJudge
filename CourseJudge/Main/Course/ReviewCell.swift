@@ -130,6 +130,7 @@ class ReviewCell: UITableViewCell {
         label.text = "Year"
         label.font = labelFont
         label.textColor = UIColor.black.withAlphaComponent(0.4)
+        label.font = UIFont.systemFont(ofSize: 12.0)
         
         return label
     }()
@@ -138,6 +139,7 @@ class ReviewCell: UITableViewCell {
         let label = UILabel()
         label.text = "Professor"
         label.font = labelFont
+        label.textColor = UIColor.black.withAlphaComponent(0.9)
         
         return label
     }()
@@ -145,7 +147,8 @@ class ReviewCell: UITableViewCell {
     lazy var difficulyLabel: UILabel = {
         let label = UILabel()
         label.text = "Difficuly"
-        label.font = labelFont
+        label.textColor = UIColor.black.withAlphaComponent(0.4)
+        label.font = UIFont.systemFont(ofSize: 12.0)
         
         return label
     }()
@@ -156,6 +159,7 @@ class ReviewCell: UITableViewCell {
         label.font = labelFont
         label.numberOfLines = 0
         label.textAlignment = .natural
+        label.textColor = UIColor.black.withAlphaComponent(0.85)
         
         return label
     }()
@@ -184,23 +188,21 @@ class ReviewCell: UITableViewCell {
         wrapperView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10.0).isActive = true
         wrapperView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10.0).isActive = true
         
+        // PROF LABEL
+        wrapperView.addSubviewLayout(professorLabel)
+        professorLabel.topAnchor.constraint(equalTo: wrapperView.topAnchor, constant: margin).isActive = true
+        professorLabel.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: margin).isActive = true
+        
         // STARS
         wrapperView.addSubviewLayout(ratingStars)
-        ratingStars.topAnchor.constraint(equalTo: wrapperView.topAnchor, constant: margin).isActive = true
+        ratingStars.topAnchor.constraint(equalTo: professorLabel.bottomAnchor, constant: 5.0).isActive = true
         ratingStars.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: margin).isActive = true
-        ratingStars.heightAnchor.constraint(equalToConstant: 15.0).isActive = true
+        ratingStars.heightAnchor.constraint(equalToConstant: 12.0).isActive = true
         
-        // STACK BELOW
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        
-        wrapperView.addSubviewLayout(stackView)
-        
-        stackView.topAnchor.constraint(equalTo: ratingStars.bottomAnchor, constant: 5.0).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: margin).isActive = true
-        
-        stackView.addArrangedSubview(professorLabel)
-        stackView.addArrangedSubview(difficulyLabel)
+        // DIFFICULTY
+        wrapperView.addSubviewLayout(difficulyLabel)
+        difficulyLabel.leadingAnchor.constraint(equalTo: ratingStars.trailingAnchor, constant: 5.0).isActive = true
+        difficulyLabel.centerYAnchor.constraint(equalTo: ratingStars.centerYAnchor).isActive = true
         
         // MORE ACTIONS BUTTON
         wrapperView.addSubviewLayout(moreActionsButton)
@@ -211,11 +213,11 @@ class ReviewCell: UITableViewCell {
         
         // YEAR LABEL
         yearLabel.trailingAnchor.constraint(equalTo: moreActionsButton.leadingAnchor, constant: -10.0).isActive = true
-        yearLabel.topAnchor.constraint(equalTo: wrapperView.topAnchor, constant: margin).isActive = true
+        yearLabel.centerYAnchor.constraint(equalTo: professorLabel.centerYAnchor).isActive = true
         
         // COMMENTS
         wrapperView.addSubviewLayout(commentsLabel)
-        commentsLabel.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 5).isActive = true
+        commentsLabel.topAnchor.constraint(equalTo: ratingStars.bottomAnchor, constant: 10.0).isActive = true
         commentsLabel.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: margin).isActive = true
         commentsLabel.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor, constant: -margin).isActive = true
         commentsLabel.bottomAnchor.constraint(lessThanOrEqualTo: wrapperView.bottomAnchor, constant: -margin).isActive = true
