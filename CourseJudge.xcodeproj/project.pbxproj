@@ -181,6 +181,7 @@
 		ED40FD1624182D6800E0B939 /* SearchViewController */ = {
 			isa = PBXGroup;
 			children = (
+				ED40FD242419F33000E0B939 /* Request University */,
 				ED40FD232419EA8600E0B939 /* Fetchers */,
 				ED40FD1724182D8800E0B939 /* SearchViewController.swift */,
 				ED40FD1924182E1B00E0B939 /* SearchView.swift */,
@@ -338,7 +339,6 @@
 				ED40FCF52417435100E0B939 /* MainVC */,
 				ED40FD1624182D6800E0B939 /* SearchViewController */,
 				ED40FD272419F75D00E0B939 /* University */,
-				ED40FD242419F33000E0B939 /* Request University */,
 				ED40FD3A241C0B0E00E0B939 /* Course */,
 				ED40FD48242A743800E0B939 /* Rate */,
 			);
