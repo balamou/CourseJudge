@@ -130,6 +130,7 @@ extension CourseViewController: ReviewCellDelegate {
     
     func moreActionsTapped(row: Int) {
         let moreActionsVC = MoreActionsViewController()
+        moreActionsVC.view.alpha = 0.0
         
         addChildViewController(child: moreActionsVC)
         
@@ -137,6 +138,10 @@ extension CourseViewController: ReviewCellDelegate {
         moreActionsVC.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         moreActionsVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         moreActionsVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        
+        UIView.animate(withDuration: 0.2, animations: {
+            moreActionsVC.view.alpha = 1.0
+        })
     }
     
 }

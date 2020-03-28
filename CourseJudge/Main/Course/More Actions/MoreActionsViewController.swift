@@ -26,7 +26,11 @@ class MoreActionsViewController: UIViewController {
     }
     
     @objc func cancelTapped() {
-        dismiss(animated: false, completion: nil)
+        UIView.animate(withDuration: 0.2, animations: {
+            self.moreActionsView.alpha = 0.0
+        }, completion: { _ in
+            self.removeSelfAsChildViewController()
+        })
     }
 }
 
