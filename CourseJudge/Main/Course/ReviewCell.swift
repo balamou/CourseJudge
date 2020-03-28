@@ -173,6 +173,24 @@ class ReviewCell: UITableViewCell {
         return button
     }()
     
+    var thumbsUpButton: UIButton = {
+        let button = UIButton()
+        button.setImage(Images.thumbsUp, for: .normal)
+        button.tintColor = UIColor.black.withAlphaComponent(0.2)
+        button.imageView?.contentMode = .scaleAspectFit
+        
+        return button
+    }()
+    
+    var thumbdsDownButton: UIButton = {
+        let button = UIButton()
+        button.setImage(Images.thumbsDown, for: .normal)
+        button.tintColor = UIColor.black.withAlphaComponent(0.2)
+        button.imageView?.contentMode = .scaleAspectFit
+        
+        return button
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -223,6 +241,17 @@ class ReviewCell: UITableViewCell {
         commentsLabel.bottomAnchor.constraint(lessThanOrEqualTo: wrapperView.bottomAnchor, constant: -margin).isActive = true
         
         moreActionsButton.addTarget(self, action: #selector(moreActionsTapped), for: .touchUpInside)
+        
+        // LIKES
+        addSubviewLayout(thumbsUpButton)
+        thumbsUpButton.topAnchor.constraint(equalTo: commentsLabel.bottomAnchor, constant: 10.0).isActive = true
+        thumbsUpButton.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: margin).isActive = true
+        thumbsUpButton.heightAnchor.constraint(equalToConstant: 18.0).isActive = true
+        
+        addSubviewLayout(thumbdsDownButton)
+        thumbdsDownButton.topAnchor.constraint(equalTo: commentsLabel.bottomAnchor, constant: 14.0).isActive = true
+        thumbdsDownButton.leadingAnchor.constraint(equalTo: thumbsUpButton.trailingAnchor, constant: 5.0).isActive = true
+        thumbdsDownButton.heightAnchor.constraint(equalToConstant: 18.0).isActive = true
     }
     
     @objc func moreActionsTapped() {
@@ -252,7 +281,7 @@ class ReviewCell: UITableViewCell {
                                                                    attributes: attributes,
                                                                    context: nil)
         
-        return minimumRowHeight + estimatedFrame.height + 10
+        return minimumRowHeight + estimatedFrame.height + 25
     }
 }
 

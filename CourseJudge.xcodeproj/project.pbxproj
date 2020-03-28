@@ -156,13 +156,13 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		ED40FD0C241749EE00E0B939 /* Contants */ = {
+		ED40FD0C241749EE00E0B939 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
 				ED40FD0D241749FC00E0B939 /* Images.swift */,
 				ED40FD42241C190B00E0B939 /* Colors.swift */,
 			);
-			path = Contants;
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		ED40FD0F241815D000E0B939 /* Reusable views */ = {
@@ -304,7 +304,7 @@
 			children = (
 				ED9D9F572416C081004C05D9 /* Info.plist */,
 				ED9D9F5D24173587004C05D9 /* Singletons */,
-				ED40FD0C241749EE00E0B939 /* Contants */,
+				ED40FD0C241749EE00E0B939 /* Constants */,
 				ED40FCFB2417489D00E0B939 /* Extensions */,
 				ED40FCF8241743CB00E0B939 /* Coodinator */,
 				ED9D9F5F2417359A004C05D9 /* Main */,

@@ -18,6 +18,9 @@ class Images {
     static let moreActions = UIImage(named: "more_actions")!
     static let moreActionsSmall = UIImage(named: "more_actions_small")!
     
+    static let thumbsUp = UIImage(named: "thumbs_up")!
+    static let thumbsDown = UIImage(named: "thumbs_down")!
+    
     struct Logo {
         static let uottawa = UIImage(named: "uottawa_logo")!
         static let carleton = UIImage(named: "carleton")!
