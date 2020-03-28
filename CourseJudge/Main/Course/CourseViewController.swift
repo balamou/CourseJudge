@@ -131,7 +131,12 @@ extension CourseViewController: ReviewCellDelegate {
     func moreActionsTapped(row: Int) {
         let moreActionsVC = MoreActionsViewController()
         
-        present(moreActionsVC, animated: false, completion: nil)
+        addChildViewController(child: moreActionsVC)
+        
+        moreActionsVC.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        moreActionsVC.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        moreActionsVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        moreActionsVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
     
 }

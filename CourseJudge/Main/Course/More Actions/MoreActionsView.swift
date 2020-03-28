@@ -13,6 +13,8 @@ class MoreActionsView: UIView {
     var wrapperView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
+        view.layer.cornerRadius = 10.0
+        view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
         return view
     }()
@@ -21,19 +23,19 @@ class MoreActionsView: UIView {
         let button = UIButton()
         button.setTitle("Report review", for: .normal)
         button.setTitleColor(.black, for: .normal)
-        button.contentEdgeInsets  = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
-        
+        button.contentEdgeInsets  = UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)
+
         return button
     }()
     
     var cancelButton: UIButton = {
         let button = UIButton()
         button.setTitle("Cancel", for: .normal)
-        button.layer.cornerRadius = 20
-        button.backgroundColor = UIColor.systemGray.withAlphaComponent(0.7)
+        button.layer.cornerRadius = 24
+        button.backgroundColor = UIColor.systemGray.withAlphaComponent(0.4)
         
         button.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: 18.0)
-        button.contentEdgeInsets  = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
+        button.contentEdgeInsets  = UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)
         
         return button
     }()
@@ -41,7 +43,7 @@ class MoreActionsView: UIView {
     init() {
         super.init(frame: .zero)
         
-        backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        backgroundColor = #colorLiteral(red: 0.03093336336, green: 0.04700698704, blue: 0.05623088032, alpha: 1).withAlphaComponent(0.5)
         
         addSubviewLayout(wrapperView)
         wrapperView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
@@ -49,9 +51,9 @@ class MoreActionsView: UIView {
         wrapperView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         
         wrapperView.addSubviewLayout(cancelButton)
-        cancelButton.bottomAnchor.constraint(equalTo: wrapperView.bottomAnchor, constant: -20.0).isActive = true
-        cancelButton.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: 20.0).isActive = true
-        cancelButton.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor, constant: -20.0).isActive = true
+        cancelButton.bottomAnchor.constraint(equalTo: wrapperView.safeAreaLayoutGuide.bottomAnchor, constant: -20.0).isActive = true
+        cancelButton.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: 40.0).isActive = true
+        cancelButton.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor, constant: -40.0).isActive = true
         
         wrapperView.addSubviewLayout(reportButton)
         reportButton.bottomAnchor.constraint(equalTo: cancelButton.topAnchor, constant: -10.0).isActive = true
