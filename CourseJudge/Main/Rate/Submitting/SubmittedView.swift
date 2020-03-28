@@ -33,18 +33,6 @@ class SubmittedView: UIView {
         return view
     }()
     
-    var doneButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Done", for: .normal)
-        button.layer.cornerRadius = 5
-        button.backgroundColor = UIColor.systemBlue.withAlphaComponent(0.7)
-        
-        button.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: 18.0)
-        button.contentEdgeInsets  = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
-        
-        return button
-    }()
-    
     init() {
         super.init(frame: .zero)
         
@@ -54,22 +42,16 @@ class SubmittedView: UIView {
         wrapperView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         wrapperView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         wrapperView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7).isActive = true
-//        wrapperView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.3).isActive = true
-        
-        wrapperView.addSubviewLayout(doneButton)
-        doneButton.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: 20.0).isActive = true
-        doneButton.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor, constant: -20.0).isActive = true
-        doneButton.bottomAnchor.constraint(equalTo: wrapperView.bottomAnchor, constant: -20.0).isActive = true
+
+        wrapperView.addSubviewLayout(successImageView)
+        successImageView.centerXAnchor.constraint(equalTo: wrapperView.centerXAnchor).isActive = true
+        successImageView.topAnchor.constraint(equalTo: wrapperView.topAnchor, constant: 20.0).isActive = true
         
         wrapperView.addSubviewLayout(infoLabel)
         infoLabel.centerXAnchor.constraint(equalTo: wrapperView.centerXAnchor).isActive = true
-        infoLabel.bottomAnchor.constraint(equalTo: doneButton.topAnchor, constant: -20.0).isActive = true
+        infoLabel.topAnchor.constraint(equalTo: successImageView.bottomAnchor, constant: 10.0).isActive = true
         
-        wrapperView.addSubviewLayout(successImageView)
-        successImageView.centerXAnchor.constraint(equalTo: wrapperView.centerXAnchor).isActive = true
-        successImageView.bottomAnchor.constraint(equalTo: infoLabel.topAnchor, constant: -10.0).isActive = true
-        
-        wrapperView.topAnchor.constraint(equalTo: successImageView.topAnchor, constant: -20.0).isActive = true
+        wrapperView.bottomAnchor.constraint(equalTo: infoLabel.bottomAnchor, constant: 20.0).isActive = true
     }
     
     required init?(coder: NSCoder) {
