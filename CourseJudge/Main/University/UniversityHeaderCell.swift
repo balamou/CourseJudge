@@ -76,6 +76,7 @@ class UniversityHeaderCell: UITableViewCell {
         universityLogoImageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         universityLogoImageView.topAnchor.constraint(equalTo: topAnchor, constant: 25.0).isActive = true
         universityLogoImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.4).isActive = true
+        universityLogoImageView.widthAnchor.constraint(lessThanOrEqualTo: widthAnchor, multiplier: 0.2).isActive = true
         
         universityNameLabel.topAnchor.constraint(equalTo: universityLogoImageView.bottomAnchor, constant: 10).isActive = true
         universityNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true

@@ -44,7 +44,7 @@ struct University {
 class UniversitiesSearchModule: UniversityFetcher {
     private let universities: [University] = [ .init(name: "uOttawa", logo: Images.Logo.uottawa, address: .uottawa, color: Colors.Universities.uottawa),
                                                .init(name: "Carleton", logo: Images.Logo.carleton, address: .carleton, color: Colors.Universities.carleton),
-                                               .init(name: "Algonquin College", logo: Images.logo, address: .algonquin),
+                                               .init(name: "Algonquin College", logo: Images.Logo.algonqiun, address: .algonquin, color: Colors.Universities.algonquin),
                                                .init(name: "Waterloo", logo: Images.logo, address: .waterloo),
                                                .init(name: "Queen's University", logo: Images.logo, address: .queens),
                                                .init(name: "McMaster University", logo: Images.logo, address: .mcmaster)]

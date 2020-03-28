@@ -24,6 +24,7 @@ class Images {
     struct Logo {
         static let uottawa = UIImage(named: "uottawa_logo")!
         static let carleton = UIImage(named: "carleton")!
+        static let algonqiun = UIImage(named: "algonquin")!
     }
     
     struct Difficulty {
