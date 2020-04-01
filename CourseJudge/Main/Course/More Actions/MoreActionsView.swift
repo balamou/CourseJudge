@@ -9,6 +9,7 @@
 import UIKit
 
 class MoreActionsView: UIView {
+    var bottomWrapperConstraint: NSLayoutConstraint!
     
     var overallTintView: UIView = {
         let view = UIView()
@@ -70,7 +71,8 @@ class MoreActionsView: UIView {
         overallTintView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
         addSubviewLayout(wrapperView)
-        wrapperView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        bottomWrapperConstraint = wrapperView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        bottomWrapperConstraint.isActive = true
         wrapperView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         wrapperView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         

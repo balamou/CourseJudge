@@ -12,6 +12,7 @@ import UIKit
 class MoreActionsViewController: UIViewController {
     
     var moreActionsView: MoreActionsView!
+    var wrapperHeight: CGFloat = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,16 +29,25 @@ class MoreActionsViewController: UIViewController {
     @objc func cancelTapped() {
         UIView.animate(withDuration: 0.2, animations: {
             self.moreActionsView.overallTintView.alpha = 0.0
+            self.moreActionsView.bottomWrapperConstraint.constant = self.wrapperHeight
+            self.view.layoutIfNeeded()
         }, completion: { _ in
             self.removeSelfAsChildViewController()
         })
     }
     
     func presetAnimation() {
-        self.moreActionsView.overallTintView.alpha = 0.0
+        moreActionsView.overallTintView.alpha = 0.0
+        
+        view.layoutIfNeeded() // trigger an update to get the height
+        wrapperHeight = moreActionsView.wrapperView.frame.height
+        moreActionsView.bottomWrapperConstraint.constant = wrapperHeight
+        view.layoutIfNeeded()
         
         UIView.animate(withDuration: 0.2, animations: {
             self.moreActionsView.overallTintView.alpha = 1.0
+            self.moreActionsView.bottomWrapperConstraint.constant = 0.0
+            self.view.layoutIfNeeded()
         })
     }
 }
