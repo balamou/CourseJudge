@@ -50,6 +50,14 @@ class MoreActionsView: UIView {
         return button
     }()
     
+    var topWedge: UIView = {
+        let view = UIView()
+        view.backgroundColor = #colorLiteral(red: 0.9058823529, green: 0.9215686275, blue: 0.937254902, alpha: 1)
+        view.layer.cornerRadius = 2.5
+        
+        return view
+    }()
+    
     init() {
         super.init(frame: .zero)
         
@@ -77,6 +85,12 @@ class MoreActionsView: UIView {
         reportButton.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor, constant: -10.0).isActive = true
         
         wrapperView.topAnchor.constraint(equalTo: reportButton.topAnchor, constant: -20.0).isActive = true
+        
+        wrapperView.addSubviewLayout(topWedge)
+        topWedge.topAnchor.constraint(equalTo: wrapperView.topAnchor, constant: 10.0).isActive = true
+        topWedge.centerXAnchor.constraint(equalTo: wrapperView.centerXAnchor).isActive = true
+        topWedge.widthAnchor.constraint(equalToConstant: 35.0).isActive = true
+        topWedge.heightAnchor.constraint(equalToConstant: 5.0).isActive = true
     }
     
     required init?(coder: NSCoder) {
