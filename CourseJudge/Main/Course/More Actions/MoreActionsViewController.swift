@@ -27,9 +27,17 @@ class MoreActionsViewController: UIViewController {
     
     @objc func cancelTapped() {
         UIView.animate(withDuration: 0.2, animations: {
-            self.moreActionsView.alpha = 0.0
+            self.moreActionsView.overallTintView.alpha = 0.0
         }, completion: { _ in
             self.removeSelfAsChildViewController()
+        })
+    }
+    
+    func presetAnimation() {
+        self.moreActionsView.overallTintView.alpha = 0.0
+        
+        UIView.animate(withDuration: 0.2, animations: {
+            self.moreActionsView.overallTintView.alpha = 1.0
         })
     }
 }

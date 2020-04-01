@@ -10,6 +10,13 @@ import UIKit
 
 class MoreActionsView: UIView {
     
+    var overallTintView: UIView = {
+        let view = UIView()
+        view.backgroundColor = #colorLiteral(red: 0.03093336336, green: 0.04700698704, blue: 0.05623088032, alpha: 1).withAlphaComponent(0.5)
+        
+        return view
+    }()
+    
     var wrapperView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -23,18 +30,21 @@ class MoreActionsView: UIView {
         let button = UIButton()
         button.setTitle("Report review", for: .normal)
         button.setTitleColor(.black, for: .normal)
-        button.contentEdgeInsets  = UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)
-
+        button.contentEdgeInsets  = UIEdgeInsets(top: 12, left: 20, bottom: 12, right: 0)
+        button.titleLabel?.font = .systemFont(ofSize: 16.0)
+        button.contentHorizontalAlignment = .left
+        
         return button
     }()
     
     var cancelButton: UIButton = {
         let button = UIButton()
         button.setTitle("Cancel", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 16.0)
+        button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 24
-        button.backgroundColor = UIColor.systemGray.withAlphaComponent(0.4)
+        button.backgroundColor = #colorLiteral(red: 0.9058823529, green: 0.9215686275, blue: 0.937254902, alpha: 1)
         
-        button.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: 18.0)
         button.contentEdgeInsets  = UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)
         
         return button
@@ -43,7 +53,13 @@ class MoreActionsView: UIView {
     init() {
         super.init(frame: .zero)
         
-        backgroundColor = #colorLiteral(red: 0.03093336336, green: 0.04700698704, blue: 0.05623088032, alpha: 1).withAlphaComponent(0.5)
+        backgroundColor = .none
+        
+        addSubviewLayout(overallTintView)
+        overallTintView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        overallTintView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        overallTintView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        overallTintView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
         addSubviewLayout(wrapperView)
         wrapperView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
@@ -51,14 +67,14 @@ class MoreActionsView: UIView {
         wrapperView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         
         wrapperView.addSubviewLayout(cancelButton)
-        cancelButton.bottomAnchor.constraint(equalTo: wrapperView.safeAreaLayoutGuide.bottomAnchor, constant: -20.0).isActive = true
-        cancelButton.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: 40.0).isActive = true
-        cancelButton.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor, constant: -40.0).isActive = true
+        cancelButton.bottomAnchor.constraint(equalTo: wrapperView.safeAreaLayoutGuide.bottomAnchor, constant: -10.0).isActive = true
+        cancelButton.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: 10.0).isActive = true
+        cancelButton.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor, constant: -10.0).isActive = true
         
         wrapperView.addSubviewLayout(reportButton)
         reportButton.bottomAnchor.constraint(equalTo: cancelButton.topAnchor, constant: -10.0).isActive = true
-        reportButton.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: 20.0).isActive = true
-        reportButton.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor, constant: -20.0).isActive = true
+        reportButton.leadingAnchor.constraint(equalTo: wrapperView.leadingAnchor, constant: 10.0).isActive = true
+        reportButton.trailingAnchor.constraint(equalTo: wrapperView.trailingAnchor, constant: -10.0).isActive = true
         
         wrapperView.topAnchor.constraint(equalTo: reportButton.topAnchor, constant: -20.0).isActive = true
     }
