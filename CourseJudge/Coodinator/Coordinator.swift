@@ -11,6 +11,7 @@ import UIKit
 class Coordinator {
     private let mainNavigationVC: UINavigationController = UINavigationController()
     private let fadingAnimation = FadingAnimationDelegate()
+    private let popupCourseAnimation = SomeTransitionManager()
     
     func start() -> UIViewController {
         let mainVC = MainViewController()
