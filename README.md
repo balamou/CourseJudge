@@ -1,6 +1,8 @@
-# <img src="images/logo.png" width="30px"/> CourseJudge
+# <img src="images/logo.png"/> CourseJudge
 
-    The application, which will be called Course Judge,  will allow students to search for a class (course name or course code) so that they can look at the reviews of the course from other students who took it previously. Students can evaluate and judge the difficulty level, amount of work, usefulness, etc. through these reviews for specific classes they are interested in taking. Our overall goal is to provide an easily accessible and easy to use application where students can share reviews of courses so that other students can decide, or just prepare for, on a class they want to take. 
+The application *Course Judge* allows students to search for a class (course name or course code) so that they can look at the reviews of the course from other students who took it previously. Students can evaluate and judge the difficulty level, amount of work, usefulness, etc. Through these reviews for specific classes they are interested in taking. 
+
+Our overall goal is to provide an easily accessible and easy to use application where students can share reviews of courses so that other students can decide, or just prepare for, on a class they want to take. 
 
   <p align="center">
   <img src="images/course_judge.gif" width="30%"/>
