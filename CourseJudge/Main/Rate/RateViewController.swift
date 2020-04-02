@@ -56,7 +56,7 @@ class RateViewController: UIViewController {
         
         let doubleTap = UITapGestureRecognizer(target: self, action: #selector(autoFillFields))
         doubleTap.numberOfTapsRequired = 2
-        view.addGestureRecognizer(doubleTap)
+//        view.addGestureRecognizer(doubleTap)
         
         rateView.rateButton.addTarget(self, action: #selector(submitReview), for: .touchUpInside)
     }
