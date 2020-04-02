@@ -117,13 +117,14 @@ class UniversityCourseCell: UITableViewCell {
     
     var wrapperView: UIView = {
         let view = UIView()
-        view.backgroundColor = .random()
+//        view.backgroundColor = .random()
         view.layer.cornerRadius = 15.0
 
-//        view.layer.shadowColor = UIColor.gray.cgColor
-//        view.layer.shadowOpacity = 0.25
-//        view.layer.shadowOffset = .zero
-//        view.layer.shadowRadius = 5
+        view.backgroundColor = .white
+        view.layer.shadowColor = #colorLiteral(red: 0.8344674706, green: 0.8555507064, blue: 0.8781591058, alpha: 1).cgColor
+        view.layer.shadowOpacity = 1.0
+        view.layer.shadowOffset = CGSize(width: 0, height: 3)
+        view.layer.shadowRadius = 5
         
         return view
     }()
