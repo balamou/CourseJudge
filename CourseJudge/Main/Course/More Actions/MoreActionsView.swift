@@ -29,7 +29,7 @@ class MoreActionsView: UIView {
     
     let reportButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Report review", for: .normal)
+        button.setTitle("🚩    Report review", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.contentEdgeInsets  = UIEdgeInsets(top: 12, left: 20, bottom: 12, right: 0)
         button.titleLabel?.font = .systemFont(ofSize: 16.0)
