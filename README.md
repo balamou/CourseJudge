@@ -1,4 +1,5 @@
-# <img src="images/logo.png"/> CourseJudge
+# <div align="center">![CourseJudge_Logo](images/logo.png)</div>
+# <div align="center">CourseJudge</div>
 
 The application *Course Judge* allows students to search for a class (course name or course code) so that they can look at the reviews of the course from other students who took it previously. Students can evaluate and judge the difficulty level, amount of work, usefulness, etc. Through these reviews for specific classes they are interested in taking. 
 
